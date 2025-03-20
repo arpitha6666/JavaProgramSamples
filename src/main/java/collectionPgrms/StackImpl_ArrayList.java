@@ -1,4 +1,4 @@
-package collections;
+package collectionPgrms;
 
 public class StackImpl_ArrayList {
 	int size;

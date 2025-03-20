@@ -1,4 +1,4 @@
-package collections;
+package collectionPgrms;
 
 public class QueueImpl_ArrayList {
 	int capacity;
