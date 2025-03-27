@@ -106,5 +106,80 @@ public class Numbers {
         else
             return false;
     }
+    //Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other.
+    public boolean haveThree(int[] nums) {
+        int apperance=0;
+        for(int i : nums){
+            if (i==3)
+                apperance++;
+        }
+        if(apperance==3)
+            return true;
+        else return false;
+    }
+    //Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
+    public boolean modThree(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if ((nums[i] % 2 == 0) && (nums[i + 1] % 2 == 0) && (nums[i + 2] % 2 == 0)
+                    || (nums[i] % 2 == 1) && (nums[i + 1] % 2 == 1) && (nums[i + 2] % 2 == 1))
+                return true;
+        }
+                return false;
+    }
+
+    //Given an array of ints, return true if every element is a 1 or a 4.
+    public boolean only14(int[] nums) {
+        boolean flag = false;
+        for(int i : nums){
+            if (i == 1 || i ==4){
+                flag=true;
+            } else
+                flag = false;
+        }
+        return flag;
+    }
+
+    //Given an array of ints, return true if the number of 1's is greater than the number of 4's
+    public boolean more14(int[] num) {
+        int countOne=0;
+        int countFour=0;
+        for(int i : num){
+            if(i==1)
+                countOne++;
+            if(i==4)
+                countFour++;
+        }
+        if(countOne > countFour)
+            return true;
+        else
+            return false;
+    }
+
+    //Given an array of ints, swap the first and last elements in the array. Return the modified array. The array length will be at least 1.
+    public int[] swapEnds(int[] num){
+        int[] out = new int[num.length];
+        out[0]=num[num.length-1];
+        for(int i =1;i<num.length-1;i++){
+            out[i]= num[i];
+        }
+        out[num.length-1]=num[0];
+        return out;
+    }
+
+    /*
+    Given an array of ints, return the number of times that two 6's are next to each other in the array.
+    Also count instances where the second "6" is actually a 7.
+     */
+    public int array667(int[] num) {
+        int count=0;
+        for(int i=0;i<num.length-1;i++){
+            if((num[i]==6 && num[i+1]==6) || (num[i]==6 && num[i+1]==7)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 
 }

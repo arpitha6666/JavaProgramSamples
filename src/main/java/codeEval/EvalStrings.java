@@ -69,6 +69,26 @@ public class EvalStrings {
         return str.substring(0,n)+str.substring(str.length()-n,str.length());
     }
 
+    //The web is built with HTML strings like "Yay" which draws Yay as italic text.
+    // In this example, the "i" tag makes and which surround the word "Yay".
+    // Given tag and word strings, create the HTML string with tags around the word, e.g. "Yay".
+    public String makeTags(String tag, String word){
+        return "<"+tag+">"+word+"<"+tag+">";
+    }
+
+    //Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+    public String stringBits(String str){
+        String res="";
+        char[] c = str.toCharArray();
+        for(int i=0;i<c.length;i=i+2){
+            res=res+c[i];
+        }
+        return res;
+    }
+
+    //Given three ints, a b c, return true if it is possible to add two of the ints to get the third.
+
+
 
 
 }
