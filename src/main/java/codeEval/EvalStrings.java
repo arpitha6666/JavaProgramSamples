@@ -86,9 +86,19 @@ public class EvalStrings {
         return res;
     }
 
-    //Given three ints, a b c, return true if it is possible to add two of the ints to get the third.
+    //Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx"
+    public int countXX(String str) {
+        int count=0;
+        char[] c = str.toCharArray();
+        for(int i =0; i<c.length-1;i++){
+            if((c[i] == 'X' && c[i+1]=='X') || c[i] == 'x' && c[i+1]=='x'){
+                count++;
+            }
+        }
+        return count;
+    }
 
 
 
 
-}
+    }
