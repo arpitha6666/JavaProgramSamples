@@ -43,6 +43,31 @@ public class EvalStrings {
     public String firstHalf(String str){
         return str.substring(0,str.length()/2);
     }
+    //Return true if the given string contains 1 or 3 'e' chars. Otherwise return false.
+    public boolean stringE(String str){
+        int count=0;
+        char[] c = str.toCharArray();
+        for(char d : c){
+            if(d =='e' || d == 'E'){
+                count++;
+            }
+        }
+        if(count == 1  || count == 3){
+            return true;
+        }else return false;
+    }
+
+    //Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the middle of the out string, e.g. "<>".
+    // Note: use str.substring(i, j) to extract the String starting at index i and going up to but not including index j.
+    public String outWord(String out, String word){
+        String res =  "";
+        res=out.substring(0,out.length()-2)+word+out.substring(out.length()-2,out.length());
+        return res;
+    }
+    //Given a string and an int n, return a string made of the first and last ' n' chars from the string. The string length will be at least n.
+    public String nTwice(String str, int n) {
+        return str.substring(0,n)+str.substring(str.length()-n,str.length());
+    }
 
 
 

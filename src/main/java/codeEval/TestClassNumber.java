@@ -38,5 +38,8 @@ public class TestClassNumber {
         System.out.println("Return true if the array contains, somewhere, " +
                 "three increasing adjacent numbers like .... 4, 5, 6, ... or 23, 24, 25 - "+n.tripleUp(new int[]{1,0,2,4,8}));
 
+        System.out.println(" Given an array of ints, return true if the sum of all the 2's in the array is exactly 8. "
+                +n.sum28(new int[]{1,2,2,4,8,85,2}));
+
     }
 }
