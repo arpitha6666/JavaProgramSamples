@@ -2,29 +2,31 @@ package codeEval;
 
 public class EvalStrings {
     //Given two strings, append them together (known as "concatenation") and return the result.
-    public String concatinateStrings(String a , String b){
-        return a+""+b;
+    public String concatinateStrings(String a, String b) {
+        return a + "" + b;
     }
+
     //Pass a string as parameter. Find out how many vowels present in it
-    public int countVowels(String obj){
-        int count=0;
-        char[] arr =obj.toCharArray();
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]=='a' || arr[i]=='e' || arr[i]=='i' || arr[i]=='o' || arr[i]=='u' ||
-                    arr[i]=='A' || arr[i]=='E' || arr[i]=='I' || arr[i]=='O' || arr[i]=='U'){
+    public int countVowels(String obj) {
+        int count = 0;
+        char[] arr = obj.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 'a' || arr[i] == 'e' || arr[i] == 'i' || arr[i] == 'o' || arr[i] == 'u' ||
+                    arr[i] == 'A' || arr[i] == 'E' || arr[i] == 'I' || arr[i] == 'O' || arr[i] == 'U') {
                 count++;
             }
         }
         return count;
     }
-    //Accept a string as parameter. Find out how many consonants present in it.
-    public int countConsonants(String obj){
-        int count=0;
-        char[] arr =obj.toCharArray();
 
-        for(int i=0;i<arr.length;i++){
+    //Accept a string as parameter. Find out how many consonants present in it.
+    public int countConsonants(String obj) {
+        int count = 0;
+        char[] arr = obj.toCharArray();
+
+        for (int i = 0; i < arr.length; i++) {
             char d = Character.toLowerCase(arr[i]);
-            if(!(d =='a' || d=='e' || d=='i' || d=='o' || d=='u' )){
+            if (!(d == 'a' || d == 'e' || d == 'i' || d == 'o' || d == 'u')) {
                 count++;
             }
         }
@@ -33,65 +35,67 @@ public class EvalStrings {
     //Given a string, return a new string where the first and last chars have been exchanged. frontBack("code") -> "eodc" ,
     // frontBack("a") -> "a" , frontBack("ab")-> "ba" , frontBack("PrograM")-> "MrograP" ,
 
-    public String reverseFirstNLastCharInString(String obj){
-        String out="";
-        out = obj.charAt(obj.length()-1)+obj.substring(1,obj.length()-1)+obj.charAt(0);
+    public String reverseFirstNLastCharInString(String obj) {
+        String out = "";
+        out = obj.charAt(obj.length() - 1) + obj.substring(1, obj.length() - 1) + obj.charAt(0);
         return out;
     }
 
     //Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
-    public String firstHalf(String str){
-        return str.substring(0,str.length()/2);
+    public String firstHalf(String str) {
+        return str.substring(0, str.length() / 2);
     }
+
     //Return true if the given string contains 1 or 3 'e' chars. Otherwise return false.
-    public boolean stringE(String str){
-        int count=0;
+    public boolean stringE(String str) {
+        int count = 0;
         char[] c = str.toCharArray();
-        for(char d : c){
-            if(d =='e' || d == 'E'){
+        for (char d : c) {
+            if (d == 'e' || d == 'E') {
                 count++;
             }
         }
-        if(count == 1  || count == 3){
+        if (count == 1 || count == 3) {
             return true;
-        }else return false;
+        } else return false;
     }
 
     //Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the middle of the out string, e.g. "<>".
     // Note: use str.substring(i, j) to extract the String starting at index i and going up to but not including index j.
-    public String outWord(String out, String word){
-        String res =  "";
-        res=out.substring(0,out.length()-2)+word+out.substring(out.length()-2,out.length());
+    public String outWord(String out, String word) {
+        String res = "";
+        res = out.substring(0, out.length() - 2) + word + out.substring(out.length() - 2, out.length());
         return res;
     }
+
     //Given a string and an int n, return a string made of the first and last ' n' chars from the string. The string length will be at least n.
     public String nTwice(String str, int n) {
-        return str.substring(0,n)+str.substring(str.length()-n,str.length());
+        return str.substring(0, n) + str.substring(str.length() - n, str.length());
     }
 
     //The web is built with HTML strings like "Yay" which draws Yay as italic text.
     // In this example, the "i" tag makes and which surround the word "Yay".
     // Given tag and word strings, create the HTML string with tags around the word, e.g. "Yay".
-    public String makeTags(String tag, String word){
-        return "<"+tag+">"+word+"<"+tag+">";
+    public String makeTags(String tag, String word) {
+        return "<" + tag + ">" + word + "<" + tag + ">";
     }
 
     //Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
-    public String stringBits(String str){
-        String res="";
+    public String stringBits(String str) {
+        String res = "";
         char[] c = str.toCharArray();
-        for(int i=0;i<c.length;i=i+2){
-            res=res+c[i];
+        for (int i = 0; i < c.length; i = i + 2) {
+            res = res + c[i];
         }
         return res;
     }
 
     //Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx"
     public int countXX(String str) {
-        int count=0;
+        int count = 0;
         char[] c = str.toCharArray();
-        for(int i =0; i<c.length-1;i++){
-            if((c[i] == 'X' && c[i+1]=='X') || c[i] == 'x' && c[i+1]=='x'){
+        for (int i = 0; i < c.length - 1; i++) {
+            if ((c[i] == 'X' && c[i + 1] == 'X') || c[i] == 'x' && c[i + 1] == 'x') {
                 count++;
             }
         }
@@ -99,6 +103,77 @@ public class EvalStrings {
     }
 
 
-
-
+    /*
+    Given a non negative number n where (n>0), create and return a new string array of length n,
+    containing the strings "0", "1" "2" .. through n-1. Note: String.valueOf(xxx) will make the String form of most types.
+    The syntax to make a new string array is: new String[desired_length]
+     */
+    public String[] fizzArray2(int n) {
+        String[] res = new String[n];
+        for (int i = 0; i < n; i++) {
+            res[i] = Integer.toString(i);
+        }
+        return res;
     }
+
+    //Given a string, return true if it ends in "ly".
+    public boolean endsLy(String str) {
+        if (str.endsWith("ly"))
+            return true;
+        else
+            return false;
+    }
+
+    //Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+    public String altPairs(String str) {
+        String res = "";
+        for (int i = 0; i < str.length(); i = i + 4) {
+            if (i < str.length() - 1)
+                res = res + str.charAt(i) + str.charAt(i + 1);
+            else
+                res = res + str.charAt(i);
+        }
+        return res;
+    }
+
+    //Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign".
+    public String lastTwo(String str) {
+        return str.substring(0, str.length() - 2) + str.charAt(str.length() - 1) + str.charAt(str.length() - 2);
+    }
+
+    //Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged.
+    public String withoutX(String str) {
+        String res = "";
+        if (str.startsWith("x") || str.startsWith("X")) {
+            res = str.substring(1, str.length());
+        }
+        if (str.endsWith("x") || str.endsWith("X")) {
+            res = str.substring(0, str.length() - 1);
+        }
+        return res;
+    }
+
+    //Given a string of even length, return a string made of the middle two chars, so the string "string" yields "ri".
+    // The string length will be at least 4.
+    public String middleTwo(String str) {
+        String out = "";
+        out = out + str.substring(str.length() / 2, str.length());
+        return out;
+    }
+
+    //Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
+    public boolean frontAgain(String str) {
+        String first = str.substring(0,2);
+        String second = str.substring(str.length()-2, str.length());
+        if(first.equalsIgnoreCase(second))
+            return true;
+        else
+            return false;
+    }
+
+    //Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle elements.
+
+}
+
+
+

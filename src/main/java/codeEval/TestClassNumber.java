@@ -60,6 +60,24 @@ public class TestClassNumber {
                 +n.twoAsOne(1,2,4));
         System.out.println("18 - Given three ints, a b c, return true if it is possible to add two of the ints to get the third - "
                 +n.twoAsOne(1,2,3));
+        System.out.println("19 - Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both- "
+                + n.either24(new int[]{1,2,2,4,4,4}));
+        System.out.println("19 - Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both  - "
+                + n.either24(new int[]{1,2,2,4,0,4}));
+
+        System.out.println("20 - Return the sum of the numbers in the array, except ignore sections of numbers starting with \n" +
+                "a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers  - "
+                + n.sum67(new int[]{1,6,7,4,0,4})+ " "+  n.sum67(new int[]{1,6,6,4,0,4}));
+
+        System.out.println("21 - Given 2 int values, return true if they are both in the range 30..40 inclusive, " +
+                "or they are both in the range 40..50 inclusive - "
+                + n.in3050( 30,40)+ " "+  n.in3050( 40,50) + " "+ n.in3050( 35,55));
+
+        System.out.println("22 - Given an array of 'n ' ints, return the sum of the first 2 elements in the array. " +
+                "If the array length is less than 2, just sum up the elements that exist. - "
+                + n.sum2(new int[]{0,11,2,3,4,5})+ " "+  n.sum2(new int[]{0,21}) + " "+ n.sum2(new int[]{12}));
+
+
 
     }
 }

@@ -34,6 +34,32 @@ public class TestEvalStrings {
         System.out.println("11 - Count the number of \"xx\" in the given string. " +
                 "We'll say that overlapping is allowed, so \"xxx\" contains 2 \"xx\" "+obj.countXX("XXatufhjnAX"));
 
+        System.out.println("12 - Given a non negative number n where (n>0), create and return a new string array of length n,\n" +
+                "containing the strings \"0\", \"1\" \"2\" .. through n-1");
+        String[] out = obj.fizzArray2(10);
+        for(String i : out)
+            System.out.print(i + " ");
+
+        System.out.println("\n13 - Given a string, return true if it ends in 'ly' - "+ obj.endsLy("Agvhknklafly"));
+        System.out.println("13 - Given a string, return true if it ends in 'ly'  - "+ obj.endsLy("gdhsfh"));
+
+        System.out.println("14 - Given a string, return a string made of the chars at " +
+                "indexes 0,1, 4,5, 8,9 ... so \"kittens\" yields \"kien\" - "+ obj.altPairs("kittens"));
+
+        System.out.println("15 - Given a string of any length, return a new string where the last 2 chars, " +
+                "if present, are swapped, so \"coding\" yields \"codign\" - "+ obj.lastTwo("kittens"));
+
+        System.out.println("16 - Given a string, if the first or last chars are 'x', " +
+                "return the string without those 'x' chars, and otherwise return the string unchanged.- "
+                + obj.withoutX("xkittens") +"\n" +  obj.withoutX("xkitXxtens") +"\n" +  obj.withoutX("kitXxtensxX"));
+
+        System.out.println("17 - Given 2 strings, return their concatenation, except omit the first char of each. " +
+                "The strings will be at least length 2. "
+                + obj.middleTwo("xkittens") +" " +  obj.middleTwo("kittens") +" " +  obj.middleTwo("tghj"));
+
+        System.out.println("18 - Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with 'edited' - "
+                + obj.frontAgain("edited") +" " +  obj.frontAgain("Edited") +" " +  obj.frontAgain("ghmbjnuj"));
+
 
     }
 }

@@ -187,7 +187,58 @@ public class Numbers {
         else return false;
     }
 
+    //Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.
+    public boolean either24(int[] num) {
+        boolean res2 = false;
+        boolean res4 = false;
+        for(int i =0;i<num.length-1;i++){
+            if(num[i]==2 && num[i+1]==2)
+                res2=true;
+            if(num[i] == 4 && num[i+1] == 4)
+                res4 =true;
+        }
+        if(res2!=res4)
+            return true;
+        else
+            return false;
+    }
 
+    //Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and
+    // extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+    public int sum67(int[] num){
+        int sum=0;
+        boolean flag = false;
+        for(int i=0;i<num.length;i++) {
+            if (num[i] == 6){
+                flag=true;
+            }
+            if(flag==false)
+                sum+=num[i];
+            if(num[i]==7)
+                flag=false;
+        }
+        return sum;
+    }
+
+    //Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both in the range 40..50 inclusive.
+    public boolean in3050(int a, int b) {
+        if((a>=30 && b<=40) || (a>=40 && b<=50))
+            return true;
+        else
+            return false;
+    }
+
+    //Given an array of 'n ' ints, return the sum of the first 2 elements in the array.
+    // If the array length is less than 2, just sum up the elements that exist.
+    public int sum2(int [] arr){
+        int sum=0;
+        if(arr.length<2){
+            sum = sum+arr[0];
+        }else{
+            sum= sum+arr[0]+arr[1];
+        }
+        return sum;
+    }
 
 
 
