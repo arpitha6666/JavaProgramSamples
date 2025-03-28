@@ -60,6 +60,33 @@ public class TestEvalStrings {
         System.out.println("18 - Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with 'edited' - "
                 + obj.frontAgain("edited") +" " +  obj.frontAgain("Edited") +" " +  obj.frontAgain("ghmbjnuj"));
 
+        System.out.println("19 - Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with 'edited' - "
+                + obj.frontAgain("edited") +" " +  obj.frontAgain("Edited") +" " +  obj.frontAgain("ghmbjnuj"));
+
+        System.out.println("20 - Given a string, return a new string where the last 3 chars are now in upper case - "
+                +obj.endUp("English"));
+
+        System.out.println("21 - Given a string, return a version without both the first and last char of the string. The strings will be at least length 3 -"
+                        +obj.withoutEnd2("Engl"));
+
+        System.out.println("22 - Given a string and an index, return a string length 2 starting at the given index. \n" +
+                "If the index is too big or too small to define a string length 2, use the first 2 chars." +
+                " The string length will be at least 2. -"
+                +obj.twoChar("Engl",0) + " "+ obj.twoChar("Engl",1));
+
+        System.out.println("23 - Given a string, return a version without both the first and last char of the string. " +
+                "The strings will be at least length 3 -"
+                +obj.makeAbba("Engl", "ty"));
+
+        System.out.println("24 - Given a string and a second \"word\" string, we'll say that the word matches the string if \n" +
+                "it appears at the front of the string, except its first char does not need to match exactly. \n" +
+                "On a match, return the front of the string, or otherwise return the original string. \n" +
+                "So, with the string \"hippo\" the word \"hi\" returns \"hi\" and \"xip\" " +
+                "returns \"hip\". The word will be at least length 1 - "+ obj.startWord("hippe","hi")+ " "+ obj.startWord("xip","hi"));
+
+        System.out.println("25 - We'll say that an element in an array is \"notalone\" if there are values before and after it,\n " +
+                "and those values are different from it. Return a version of the given array where every instance of the given value which is \n" +
+                "notalone is replaced by whichever value to its left or right is larger - ");
 
     }
 }

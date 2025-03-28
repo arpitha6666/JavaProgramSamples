@@ -77,7 +77,25 @@ public class TestClassNumber {
                 "If the array length is less than 2, just sum up the elements that exist. - "
                 + n.sum2(new int[]{0,11,2,3,4,5})+ " "+  n.sum2(new int[]{0,21}) + " "+ n.sum2(new int[]{12}));
 
+        System.out.println("23 - Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle elements");
+        int[] out1 = n.middleWay(new int[]{0,11,2}, new int[]{0,45,1});
+        for(int i : out1)
+            System.out.print(i + " ");
 
+        System.out.println("24 - Given an array of positive ints, return a new array of length 'count' containing the first even numbers from the original array.\n" +
+                "The original array will contain at least 'count' even numbers. ");
+        int[] out2 =n.copyEvens(new int[]{1,2,4,5,6,7,8,9,22}, 4);
+        for(int i : out2)
+            System.out.print(i + " ");
+
+        System.out.println("25 - Given 2 int values, return whichever value is nearest to the value 10, or return 0 in the event of a tie "
+                + n.close10(8,5));
+
+        System.out.println("26 - Return a version of the given array where every instance of the given value which is notalone is \n" +
+                " replaced by whichever value to its left or right is larger ");
+        int[] out3 =n.notAlone(new int[]{1,2,3,4,5,},2);
+        for(int i : out3)
+            System.out.print(i + " ");
 
     }
 }

@@ -171,7 +171,46 @@ public class EvalStrings {
             return false;
     }
 
-    //Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle elements.
+    //Given a string, return a new string where the last 3 chars are now in upper case.
+    // If the string has less than 3 chars, uppercase whatever is there.
+    // Note that str.toUpperCase() returns the uppercase version of a string.
+    public String endUp(String str) {
+        String res =str.substring(str.length()-3).toUpperCase();
+        return  res;
+    }
+
+    //Given a string, return a version without both the first and last char of the string. The strings will be at least length 3.
+    public String withoutEnd2(String str) {
+        return str.substring(1,str.length()-1);
+    }
+
+    //Given a string and an index, return a string length 2 starting at the given index.
+    // If the index is too big or too small to define a string length 2, use the first 2 chars.
+    // The string length will be at least 2.
+    public String twoChar(String str, int index) {
+        if(index+2>str.length())
+            return str.substring(0,2);
+        else
+            return str.substring(index, index+2);
+    }
+
+    //Given two strings, a and b, return the result of putting them together in the order 'abba', e.g. "Hi" and "Bye" returns "HiByeByeHi".
+    public String makeAbba(String a, String b) {
+        return a+b+b+a;
+    }
+
+    /*
+    Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string,
+    except its first char does not need to match exactly. On a match, return the front of the string, or otherwise return the original string.
+    So, with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
+     */
+    public String startWord(String str, String word) {
+        if(word.substring(0).equals(str.substring(0,word.length())))
+            return str.substring(0,word.length());
+        else return str;
+    }
+
+
 
 }
 
