@@ -325,27 +325,27 @@ public class Numbers {
      Use int division to produce the final average. You may assume that the array is length 3 or more.
      */
     public int centeredAverage(int[] nums) {
-        int sum=0;
+        int sum = 0;
         Arrays.sort(nums);
         int count = nums.length;
-        for(int i=1;i<count-1;i++){
-            sum=sum+nums[i];
+        for (int i = 1; i < count - 1; i++) {
+            sum = sum + nums[i];
 
         }
-        return sum/(nums.length-2);
+        return sum / (nums.length - 2);
     }
 
     //Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
     public boolean has12(int[] nums) {
-        boolean oneflag =false;
+        boolean oneflag = false;
         boolean twoFalg = false;
-        for(int i =0;i<nums.length;i++){
-            if(nums[i]==1)
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1)
                 oneflag = true;
-            if(nums[i] == 2)
-                twoFalg= true;
+            if (nums[i] == 2)
+                twoFalg = true;
         }
-        if(oneflag && twoFalg)
+        if (oneflag && twoFalg)
             return true;
         else return false;
     }
@@ -355,16 +355,16 @@ public class Numbers {
     // {1,2,3,4,5,6} -> {2,4,6,1,3,5}
     public int[] evenOdd(int[] nums) {
         int res[] = new int[nums.length];
-        int k=0;
-        for(int i=0;i<nums.length;i++) {
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 0) {
                 res[k] = nums[i];
                 k++;
             }
         }//even {2,4,6} with k =3
-        for(int i=0;i<nums.length;i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 1) {
-                res[k]= nums[i];
+                res[k] = nums[i];
                 k++;
             }
         }
@@ -375,9 +375,9 @@ public class Numbers {
     // Return true if the given array contains an unlucky 1 any where in the array.
     public boolean unlucky1(int[] num) {
         boolean unlucky = false;
-        for(int i=0;i<num.length-1;i++){
-            if(num[i] == 1 && num[i+1]==3){
-                unlucky= true;
+        for (int i = 0; i < num.length - 1; i++) {
+            if (num[i] == 1 && num[i + 1] == 3) {
+                unlucky = true;
             }
         }
         return unlucky;
@@ -387,9 +387,9 @@ public class Numbers {
     // Return the changed array.Otherwise returned the same array.
 
     public int[] fix23(int[] num) {
-        for(int i =0;i<num.length-1;i++){
-            if(num[i] == 2 && num[i+1]==3){
-                num[i+1]=0;
+        for (int i = 0; i < num.length - 1; i++) {
+            if (num[i] == 2 && num[i + 1] == 3) {
+                num[i + 1] = 0;
             }
         }
         return num;
@@ -402,15 +402,15 @@ public class Numbers {
 
     public int[] zeroFront(int[] num) {
         int[] res = new int[num.length];
-        int j =0;
-        for(int i =0;i<num.length;i++){
-            if(num[i] ==0){
+        int j = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] == 0) {
                 res[j] = num[i];
                 j++;
             }
         }
-        for(int i =0;i<num.length;i++){
-            if(num[i] !=0){
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] != 0) {
                 res[j] = num[i];
                 j++;
             }
@@ -420,4 +420,16 @@ public class Numbers {
 
     //Given an array of scores, return true if each score is equal or greater than the one before.
     // The array will be length 2 or more.
+    public boolean scoresIncreasing(int[] scores) {
+        boolean score = false;
+        int max = 0;
+        for (int i = 0; i < scores.length - 1; i++) {
+            if (!(scores[i] < scores[i + 1])) {
+                score = false;
+                break;
+            } else
+                score = true;
+        }
+        return score;
+    }
 }

@@ -125,7 +125,7 @@ public class TestClassNumber {
             System.out.print(i + " ");
 
         System.out.println("32 - Given an array of scores, return true if each score is equal or greater than the one before. \n" +
-                "The array will be length 2 or more - ");
+                "The array will be length 2 or more - "+ n.scoresIncreasing(new int[]{1,0,3})+ " "+ n.scoresIncreasing(new int[]{1,2,3}));
 
     }
 }
