@@ -97,6 +97,9 @@ public class TestEvalStrings {
         System.out.println("28 - Given a string of odd length, return the string length 3 from its middle, " +
                 "so 'Candy' yields 'and'. The string length will be at least 3 - "+obj.middleThree("returna"));
 
+        System.out.println("29 - Given a string, return a string length 2 made of its first 2 chars. \n" +
+                "If the string length is less than 2, use '@' for the missing chars - "+ obj.atFirst("")+ " "+ obj.atFirst("s")+ " "+ obj.atFirst("ae")+ " "+ obj.atFirst("ard"));
+
 
 
     }

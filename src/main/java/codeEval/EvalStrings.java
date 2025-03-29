@@ -213,19 +213,19 @@ public class EvalStrings {
     //Given a string, return a string length 1 from its front,
     // unless front is false, in which case return a string length 1 from its back. The string will be non-empty.
     public String theEnd(String str, boolean front) {
-        String res= "";
-        if(front == false){
-            res = str.substring(str.length()-1);
-        }else
-            res = str.substring(0,1);
+        String res = "";
+        if (front == false) {
+            res = str.substring(str.length() - 1);
+        } else
+            res = str.substring(0, 1);
         return res;
     }
 
     //Given a string, if the string "del" appears starting at index 1,
     // return a string where that "del" has been deleted. Otherwise, return the string unchanged
     public String delDel(String str) {
-        if(str.indexOf("del")==1)
-            return (str.charAt(0)+str.substring(4));
+        if (str.indexOf("del") == 1)
+            return (str.charAt(0) + str.substring(4));
         else
             return str;
     }
@@ -234,15 +234,25 @@ public class EvalStrings {
     // so "Candy" yields "and". The string length will be at least 3.
     public String middleThree(String str) {
 
-        if(str.length()<3)
+        if (str.length() < 3)
             throw new RuntimeException("String length should be atleast 3");
-        else{
-            int len =str.length()/2; //2, 4
-            return (str.substring(len-1,len+2));
+        else {
+            int len = str.length() / 2; //2, 4
+            return (str.substring(len - 1, len + 2));
         }
     }
 
-
+    //Given a string, return a string length 2 made of its first 2 chars.
+    // If the string length is less than 2, use '@' for the missing chars.
+    public String atFirst(String str) {
+        if (str.length() == 2)
+            return str;
+         else if(str.length()>2)
+            return str.substring(0, 2);
+         else if(str.length()==1)
+             return str+"@";
+         else return "@@";
+    }
 }
 
 
