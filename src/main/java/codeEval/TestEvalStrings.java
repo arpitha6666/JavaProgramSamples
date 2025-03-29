@@ -88,5 +88,16 @@ public class TestEvalStrings {
                 "and those values are different from it. Return a version of the given array where every instance of the given value which is \n" +
                 "notalone is replaced by whichever value to its left or right is larger - ");
 
+        System.out.println("26 - Given a string, return a string length 1 from its front, unless front is false, \n" +
+                "in which case return a string length 1 from its back. The string will be non-empty - "+obj.theEnd("Ars", false) + " "+ obj.theEnd("Ars", true));
+
+        System.out.println("27 - Given a string, if the string 'del' appears starting at index 1, return a string where that\n" +
+                " 'del'  has been deleted. Otherwise, return the string unchanged - "+obj.delDel("AdelArs"));
+
+        System.out.println("28 - Given a string of odd length, return the string length 3 from its middle, " +
+                "so 'Candy' yields 'and'. The string length will be at least 3 - "+obj.middleThree("returna"));
+
+
+
     }
 }

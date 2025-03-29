@@ -1,6 +1,8 @@
 package codeEval;
 //
 
+import java.util.Arrays;
+
 public class Numbers {
     //Pass two ints as parameter and return the sum of numbers.
     public int sumOfTheNumbers(int a, int b) {
@@ -304,15 +306,118 @@ public class Numbers {
      */
 
     public int[] notAlone(int[] nums, int val) {
-        for(int i =1;i<nums.length-1;i++){
-            if(val == nums[i]){
-                if(nums[i-1]>nums[i+1]){
-                    nums[i]=nums[i-1];
-                }else
-                    nums[i] = nums[i+1];
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (val == nums[i]) {
+                if (nums[i - 1] > nums[i + 1]) {
+                    nums[i] = nums[i - 1];
+                } else
+                    nums[i] = nums[i + 1];
             }
         }
         return nums;
 
     }
+
+    /*
+    Return the "centered" average of an array of ints, which we'll say is the mean average of the values,
+    except ignoring the largest and smallest values in the array. If there are multiple copies of the smallest value,
+    ignore just one copy, and likewise for the largest value.
+     Use int division to produce the final average. You may assume that the array is length 3 or more.
+     */
+    public int centeredAverage(int[] nums) {
+        int sum=0;
+        Arrays.sort(nums);
+        int count = nums.length;
+        for(int i=1;i<count-1;i++){
+            sum=sum+nums[i];
+
+        }
+        return sum/(nums.length-2);
+    }
+
+    //Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
+    public boolean has12(int[] nums) {
+        boolean oneflag =false;
+        boolean twoFalg = false;
+        for(int i =0;i<nums.length;i++){
+            if(nums[i]==1)
+                oneflag = true;
+            if(nums[i] == 2)
+                twoFalg= true;
+        }
+        if(oneflag && twoFalg)
+            return true;
+        else return false;
+    }
+
+    //Return an array that contains the exact same numbers as the given array, but rearranged so that all the even numbers come
+    // before all the odd numbers.You can make a new array and return it.Note:Retain the order of other elements.
+    // {1,2,3,4,5,6} -> {2,4,6,1,3,5}
+    public int[] evenOdd(int[] nums) {
+        int res[] = new int[nums.length];
+        int k=0;
+        for(int i=0;i<nums.length;i++) {
+            if (nums[i] % 2 == 0) {
+                res[k] = nums[i];
+                k++;
+            }
+        }//even {2,4,6} with k =3
+        for(int i=0;i<nums.length;i++) {
+            if (nums[i] % 2 == 1) {
+                res[k]= nums[i];
+                k++;
+            }
+        }
+        return res; //{2,4,6,1,3,5}
+    }
+
+    //We'll say that a 1 immediately followed by a 3 in an array is an "unlucky" 1.
+    // Return true if the given array contains an unlucky 1 any where in the array.
+    public boolean unlucky1(int[] num) {
+        boolean unlucky = false;
+        for(int i=0;i<num.length-1;i++){
+            if(num[i] == 1 && num[i+1]==3){
+                unlucky= true;
+            }
+        }
+        return unlucky;
+    }
+
+    //Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0.
+    // Return the changed array.Otherwise returned the same array.
+
+    public int[] fix23(int[] num) {
+        for(int i =0;i<num.length-1;i++){
+            if(num[i] == 2 && num[i+1]==3){
+                num[i+1]=0;
+            }
+        }
+        return num;
+    }
+
+    //Return an array that contains the exact same numbers as the given array,
+    // but rearranged so that all the zeros are grouped at the start of the array.
+    // So {1, 0, 0, 1} becomes {0 ,0, 1, 1}.
+    // You can return a new array.please preserve the order of other elements as it is.
+
+    public int[] zeroFront(int[] num) {
+        int[] res = new int[num.length];
+        int j =0;
+        for(int i =0;i<num.length;i++){
+            if(num[i] ==0){
+                res[j] = num[i];
+                j++;
+            }
+        }
+        for(int i =0;i<num.length;i++){
+            if(num[i] !=0){
+                res[j] = num[i];
+                j++;
+            }
+        }
+        return res;
+    }
+
+    //Given an array of scores, return true if each score is equal or greater than the one before.
+    // The array will be length 2 or more.
 }

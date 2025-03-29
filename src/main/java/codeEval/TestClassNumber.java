@@ -93,9 +93,39 @@ public class TestClassNumber {
 
         System.out.println("26 - Return a version of the given array where every instance of the given value which is notalone is \n" +
                 " replaced by whichever value to its left or right is larger ");
-        int[] out3 =n.notAlone(new int[]{1,2,3,4,5,},2);
+        int[] out3 =n.notAlone(new int[]{1,2,3,4,5},2);
         for(int i : out3)
             System.out.print(i + " ");
+        System.out.println("27 - Return the 'centered' average of an array of ints - "+n.centeredAverage(new int[]{1,2,3,4,5,6}));
+
+        System.out.println("28 - Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array - "
+                +n.has12(new int[]{1,2,3,4,5,6}) + " " + n.has12(new int[]{1,0,3,4,5,6}) + " "+ n.has12(new int[]{0,2,3,4,5,6}) + " "+n.has12(new int[]{0,0,3,4,5,6}));
+
+        System.out.println("28 - Return an array that contains the exact same numbers as the given array,\n" +
+                " but rearranged so that all the even numbers come before all the odd numbers.\n" +
+                "You can make a new array and return it.Note:Retain the order of other elements.  - ");
+        int[] out4 =n.evenOdd(new int[]{1,2,3,4,5,6});
+        for(int i : out4)
+            System.out.print(i + " ");
+
+        System.out.println("29 - We'll say that a 1 immediately followed by a 3 in an array is an 'unlucky' 1.\n" +
+                "Return true if the given array contains an unlucky 1 any where in the array  - "+ n.unlucky1(new int[]{1,2,3,4,5,6}) + " "+ n.unlucky1(new int[]{1,3,3,4,5,6}));
+
+        System.out.println("30 - Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0. \n" +
+                "Return the changed array.Otherwise returned the same array - ");
+        int[] out5 =n.fix23(new int[]{1,2,3,4,5,6});
+        for(int i : out5)
+            System.out.print(i + " ");
+
+        System.out.println("31 - Return an array that contains the exact same numbers as the given array, but rearranged so that all \n" +
+                "the zeros are grouped at the start of the array. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. \n" +
+                "You can return a new array.please preserve the order of other elements as it is - ");
+        int[] out6 = n.zeroFront(new int[]{1,0,1,0,1});
+        for(int i : out6)
+            System.out.print(i + " ");
+
+        System.out.println("32 - Given an array of scores, return true if each score is equal or greater than the one before. \n" +
+                "The array will be length 2 or more - ");
 
     }
 }

@@ -163,9 +163,9 @@ public class EvalStrings {
 
     //Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
     public boolean frontAgain(String str) {
-        String first = str.substring(0,2);
-        String second = str.substring(str.length()-2, str.length());
-        if(first.equalsIgnoreCase(second))
+        String first = str.substring(0, 2);
+        String second = str.substring(str.length() - 2, str.length());
+        if (first.equalsIgnoreCase(second))
             return true;
         else
             return false;
@@ -175,28 +175,28 @@ public class EvalStrings {
     // If the string has less than 3 chars, uppercase whatever is there.
     // Note that str.toUpperCase() returns the uppercase version of a string.
     public String endUp(String str) {
-        String res =str.substring(str.length()-3).toUpperCase();
-        return  res;
+        String res = str.substring(str.length() - 3).toUpperCase();
+        return res;
     }
 
     //Given a string, return a version without both the first and last char of the string. The strings will be at least length 3.
     public String withoutEnd2(String str) {
-        return str.substring(1,str.length()-1);
+        return str.substring(1, str.length() - 1);
     }
 
     //Given a string and an index, return a string length 2 starting at the given index.
     // If the index is too big or too small to define a string length 2, use the first 2 chars.
     // The string length will be at least 2.
     public String twoChar(String str, int index) {
-        if(index+2>str.length())
-            return str.substring(0,2);
+        if (index + 2 > str.length())
+            return str.substring(0, 2);
         else
-            return str.substring(index, index+2);
+            return str.substring(index, index + 2);
     }
 
     //Given two strings, a and b, return the result of putting them together in the order 'abba', e.g. "Hi" and "Bye" returns "HiByeByeHi".
     public String makeAbba(String a, String b) {
-        return a+b+b+a;
+        return a + b + b + a;
     }
 
     /*
@@ -205,11 +205,42 @@ public class EvalStrings {
     So, with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
      */
     public String startWord(String str, String word) {
-        if(word.substring(0).equals(str.substring(0,word.length())))
-            return str.substring(0,word.length());
+        if (word.substring(0).equals(str.substring(0, word.length())))
+            return str.substring(0, word.length());
         else return str;
     }
 
+    //Given a string, return a string length 1 from its front,
+    // unless front is false, in which case return a string length 1 from its back. The string will be non-empty.
+    public String theEnd(String str, boolean front) {
+        String res= "";
+        if(front == false){
+            res = str.substring(str.length()-1);
+        }else
+            res = str.substring(0,1);
+        return res;
+    }
+
+    //Given a string, if the string "del" appears starting at index 1,
+    // return a string where that "del" has been deleted. Otherwise, return the string unchanged
+    public String delDel(String str) {
+        if(str.indexOf("del")==1)
+            return (str.charAt(0)+str.substring(4));
+        else
+            return str;
+    }
+
+    //Given a string of odd length, return the string length 3 from its middle,
+    // so "Candy" yields "and". The string length will be at least 3.
+    public String middleThree(String str) {
+
+        if(str.length()<3)
+            throw new RuntimeException("String length should be atleast 3");
+        else{
+            int len =str.length()/2; //2, 4
+            return (str.substring(len-1,len+2));
+        }
+    }
 
 
 }
