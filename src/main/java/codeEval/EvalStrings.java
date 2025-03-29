@@ -1,5 +1,7 @@
 package codeEval;
 
+import java.util.HashSet;
+
 public class EvalStrings {
     //Given two strings, append them together (known as "concatenation") and return the result.
     public String concatinateStrings(String a, String b) {
@@ -252,6 +254,58 @@ public class EvalStrings {
          else if(str.length()==1)
              return str+"@";
          else return "@@";
+    }
+
+    //Check if string has all unique characters(considering white spaces and case sensitivity).
+    // Eg: i/p : reghav o/p : true i/p : raghav o/p : false
+    public boolean isStringUnique(String s){
+        HashSet<Character> res = new HashSet<>();
+        char[] c = s.toCharArray();
+        for(char d : c){
+            res.add(d);
+        }
+        if(s.length() == res.size())
+            return true;
+        else
+            return false;
+    }
+    //Perform basic string compression using counts of repeated characters. (If the compressed string is larger than or equal to
+    // the orginal string(in length) then the original string should be returned) Eg: i/p : aaaaccccbbbhhhjj o/p : a4c4b3h3j2
+    public String countsOfRepeatNum(String str){
+        StringBuilder result = new StringBuilder();
+        int i =0;
+        while(i<str.length()){
+            char currentChar = str.charAt(i);
+            int count=1; //count first char as 1
+
+            while(i+1<str.length() && str.charAt(i+1)==currentChar){
+                count++;
+                i++;
+            }
+            result.append(currentChar).append(count);
+            //move to next char
+            i++;
+        }
+        return result.toString();
+
+    }
+
+    public String countsOfRepeatNumUsingFor(String str){
+        StringBuilder result = new StringBuilder();
+        int count=1; //count first char as 1
+        char prevChar = str.charAt(0);
+        for(int i=1;i<str.length();i++){
+            char currentChar = str.charAt(i);
+            if(prevChar ==currentChar) {
+                count++;
+            }else{
+                result.append(currentChar).append(count);
+                prevChar=currentChar;
+                count=1;
+            }
+        }
+        return result.toString();
+
     }
 }
 

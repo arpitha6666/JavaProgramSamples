@@ -2,6 +2,7 @@ package codeEval;
 //
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Numbers {
     //Pass two ints as parameter and return the sum of numbers.
@@ -432,4 +433,16 @@ public class Numbers {
         }
         return score;
     }
+
+    //Given an int N,return the absolute difference between N and 21,
+    // except return double the absolute difference if N is over 21.
+    // diff21(19) --> 2 , diff21(10)--> 11 , diff21(21)-->0 , diff21(23)--> 4
+    public int diff21(int n) {
+        int newN = Math.abs(n);
+        if(newN ==21 || newN<21)
+            return 21-newN;
+        else
+            return Math.abs(21-newN)*2;
+    }
+
 }

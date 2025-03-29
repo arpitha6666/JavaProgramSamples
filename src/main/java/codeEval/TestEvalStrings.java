@@ -100,7 +100,12 @@ public class TestEvalStrings {
         System.out.println("29 - Given a string, return a string length 2 made of its first 2 chars. \n" +
                 "If the string length is less than 2, use '@' for the missing chars - "+ obj.atFirst("")+ " "+ obj.atFirst("s")+ " "+ obj.atFirst("ae")+ " "+ obj.atFirst("ard"));
 
+        System.out.println("30- Check if string has all unique characters(considering white spaces and case sensitivity). \n" +
+                "Eg: i/p : reghav o/p : true i/p : raghav o/p : false - "+obj.isStringUnique("reghav")+ " "+ obj.isStringUnique("raghav"));
 
+        System.out.println("31 - Perform basic string compression using counts of repeated characters. \n" +
+                "(If the compressed string is larger than or equal to the orginal string(in length) then the original string should be returned) \n" +
+                "Eg: i/p : aaaaccccbbbhhhjj o/p : a4c4b3h3j2 - "+obj.countsOfRepeatNum("aaaccccbbbhhjj")+ " "+ obj.countsOfRepeatNumUsingFor("aaatttffhhbj"));
 
     }
 }
