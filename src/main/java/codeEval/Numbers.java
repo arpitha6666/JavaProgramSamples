@@ -466,4 +466,35 @@ public class Numbers {
         }
         return min;
     }
+
+    //Given two non-negative int values, return true if they have the same last digit,
+    // such as with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
+    public boolean lastDigit(int a, int b) {
+            if(a%10 == b%10)
+                return true;
+            else
+                return false;
+    }
+
+    //Given an array of ints, return true if the array does not have any 1's or 3's.
+    public boolean lucky13(int[] nums) {
+        boolean flag = true;
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i] == 1 || nums[i] == 3){
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    //Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You can return a new array.
+    public int[] shiftLeft(int[] nums) {
+        int tem = nums[0];
+        for(int i=0;i<nums.length-1;i++){
+            nums[i]=nums[i+1];
+        }
+        nums[nums.length-1]=tem;
+        return nums;
+    }
 }

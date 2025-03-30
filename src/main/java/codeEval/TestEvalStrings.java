@@ -116,5 +116,10 @@ public class TestEvalStrings {
 
         System.out.println("34 - Pass a string as parameter. Convert the string characters to lowercase if it is uppercase and to uppercase if its lowercase.\n"+
                 "If there are digits or special chars in the string, they should be omitted - "+obj.convertCase("aRa1s@$rs"));
+
+        System.out.println("35 - Given a non-empty string and an int N, return the string made starting with char 0,\n"+
+        "and then every N th char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more- "+obj.everyNth("wertyuiofghjkbhjk",2));
+
+        System.out.println("36 - "+obj.everyNth("wertyuiofghjkbhjk",2));
     }
 }

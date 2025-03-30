@@ -137,5 +137,15 @@ public class TestClassNumber {
 
         System.out.println("35 - Given an array of 'N' ints .The method which returns the min from the elements - "+n.findMinimum(new int[]{1,2,45,5,6,7,0,9,22}));
 
+        System.out.println("36 - Given two non-negative int values, return true if they have the same last digit,\n" +
+                " such as with 27 and 57. Note that the % \"mod\" operator computes remainders, so 17 % 10 is 7 - "+n.lastDigit(27,57) + " "+ n.lastDigit(22,57));
+
+        System.out.println("37 - Given an array of ints, return true if the array does not have any 1's or 3's - "+n.lucky13(new int[]{1,2,45,5,6,7,0,9,22})+ " "+ n.lucky13(new int[]{0,2,45,5,6,7,0,9,22}));
+
+        System.out.println("38 -  Return an array that is 'left shifted' by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You can return a new array - ");
+        int[] out8 = n.shiftLeft(new int[]{1,2,45,5});
+        for(int i : out8)
+            System.out.print(i + " ");
+
     }
 }
