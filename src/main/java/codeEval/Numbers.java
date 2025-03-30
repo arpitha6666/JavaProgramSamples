@@ -445,4 +445,25 @@ public class Numbers {
             return Math.abs(21-newN)*2;
     }
 
+    //Given an array of 'n' ints .Arrange the array elements in reverse order.
+    public int[] reverseArray(int[] b){
+        int[] res = new int[b.length];
+        int j=0;
+        for(int i =b.length-1;i>=0;i--){
+            res[i]=b[j];
+            j++;
+        }
+        return res;
+    }
+
+
+    //Given an array of 'N' ints .The method which returns the min from the elements.
+    public int findMinimum(int[] arr){
+        int min = arr[0];
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<min)
+                min=arr[i];
+        }
+        return min;
+    }
 }

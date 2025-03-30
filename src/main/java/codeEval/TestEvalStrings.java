@@ -107,5 +107,14 @@ public class TestEvalStrings {
                 "(If the compressed string is larger than or equal to the orginal string(in length) then the original string should be returned) \n" +
                 "Eg: i/p : aaaaccccbbbhhhjj o/p : a4c4b3h3j2 - "+obj.countsOfRepeatNum("aaaccccbbbhhjj")+ " "+ obj.countsOfRepeatNumUsingFor("aaatttffhhbj"));
 
+        System.out.println("31 - Pass two Strings. Check whether the second String is rotated form of the first String - "+obj.isStringRotated("ars", "ars"));
+
+        System.out.println("32 - Accept a string as input. The method should return a string which does not contain any repeating characters. - "+obj.noRepeat("arsarsars"));
+
+        System.out.println("33 - Pass a string as parameter. Convert the string characters to lowercase if it is uppercase and to uppercase if its lowercase.\n"+
+                "If there are digits or special chars in the string, they should be omitted - "+obj.convertCase("aRa1s@$rs"));
+
+        System.out.println("34 - Pass a string as parameter. Convert the string characters to lowercase if it is uppercase and to uppercase if its lowercase.\n"+
+                "If there are digits or special chars in the string, they should be omitted - "+obj.convertCase("aRa1s@$rs"));
     }
 }

@@ -127,9 +127,15 @@ public class TestClassNumber {
         System.out.println("32 - Given an array of scores, return true if each score is equal or greater than the one before. \n" +
                 "The array will be length 2 or more - "+ n.scoresIncreasing(new int[]{1,0,3})+ " "+ n.scoresIncreasing(new int[]{1,2,3}));
 
-        System.out.println("33- Given an int N,return the absolute difference between N and 21, except return double the absolute difference if N is over 21.\n" +
+        System.out.println("33 - Given an int N,return the absolute difference between N and 21, except return double the absolute difference if N is over 21.\n" +
                 " diff21(19) --> 2 , diff21(10)--> 11 , diff21(21)-->0 , diff21(23)--> 4  - "+n.diff21(19)+ " "+ n.diff21(21)+ " "+ n.diff21(23));
 
+        System.out.println("34 - Given an array of 'n' ints .Arrange the array elements in reverse order ");
+        int[] out7 = n.reverseArray(new int[]{1,0,3});
+        for(int i : out7)
+            System.out.print(i + " ");
+
+        System.out.println("35 - Given an array of 'N' ints .The method which returns the min from the elements - "+n.findMinimum(new int[]{1,2,45,5,6,7,0,9,22}));
 
     }
 }

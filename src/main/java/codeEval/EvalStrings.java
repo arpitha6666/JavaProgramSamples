@@ -1,6 +1,7 @@
 package codeEval;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class EvalStrings {
     //Given two strings, append them together (known as "concatenation") and return the result.
@@ -305,8 +306,47 @@ public class EvalStrings {
             }
         }
         return result.toString();
-
     }
+
+    //Pass two Strings. Check whether the second String is rotated form of the first String.
+    //ars sra - arsars
+    public boolean isStringRotated(String s1, String s2) {
+        if( (s1+s1).contains(s2))
+            return true;
+        else
+            return false;
+    }
+
+    //Accept a string as input. The method should return a string which does not contain any repeating characters.
+    public String noRepeat(String str){
+        StringBuilder sb = new StringBuilder();
+        Set<Character> input = new HashSet<>();
+        char[] c = str.toCharArray();
+        for(int i=0;i<c.length;i++){
+            input.add(c[i]);
+        }
+        for(Character i : input){
+            sb.append(i);
+        }
+        return sb.toString();
+    }
+
+    //Pass a string as parameter. Convert the string characters to lowercase if it is uppercase and to uppercase if its lowercase.
+    // If there are digits or special chars in the string, they should be omitted.
+    public String convertCase(String s){
+        StringBuilder sb = new StringBuilder();
+        char[] c =s.toCharArray();
+        for(int i=0;i<c.length;i++){
+            if(Character.isLetter(c[i])) {
+                if (Character.isLowerCase(c[i]))
+                    sb.append(Character.toUpperCase(c[i]));
+                else
+                    sb.append(Character.toLowerCase(c[i]));
+            }
+        }
+        return sb.toString();
+    }
+
 }
 
 
