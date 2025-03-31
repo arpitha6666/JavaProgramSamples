@@ -4,6 +4,7 @@ package codeEval;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Numbers {
     //Pass two ints as parameter and return the sum of numbers.
@@ -440,18 +441,18 @@ public class Numbers {
     // diff21(19) --> 2 , diff21(10)--> 11 , diff21(21)-->0 , diff21(23)--> 4
     public int diff21(int n) {
         int newN = Math.abs(n);
-        if(newN ==21 || newN<21)
-            return 21-newN;
+        if (newN == 21 || newN < 21)
+            return 21 - newN;
         else
-            return Math.abs(21-newN)*2;
+            return Math.abs(21 - newN) * 2;
     }
 
     //Given an array of 'n' ints .Arrange the array elements in reverse order.
-    public int[] reverseArray(int[] b){
+    public int[] reverseArray(int[] b) {
         int[] res = new int[b.length];
-        int j=0;
-        for(int i =b.length-1;i>=0;i--){
-            res[i]=b[j];
+        int j = 0;
+        for (int i = b.length - 1; i >= 0; i--) {
+            res[i] = b[j];
             j++;
         }
         return res;
@@ -459,11 +460,11 @@ public class Numbers {
 
 
     //Given an array of 'N' ints .The method which returns the min from the elements.
-    public int findMinimum(int[] arr){
+    public int findMinimum(int[] arr) {
         int min = arr[0];
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]<min)
-                min=arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
         }
         return min;
     }
@@ -471,17 +472,17 @@ public class Numbers {
     //Given two non-negative int values, return true if they have the same last digit,
     // such as with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
     public boolean lastDigit(int a, int b) {
-            if(a%10 == b%10)
-                return true;
-            else
-                return false;
+        if (a % 10 == b % 10)
+            return true;
+        else
+            return false;
     }
 
     //Given an array of ints, return true if the array does not have any 1's or 3's.
     public boolean lucky13(int[] nums) {
         boolean flag = true;
-        for(int i = 0;i<nums.length;i++){
-            if(nums[i] == 1 || nums[i] == 3){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1 || nums[i] == 3) {
                 flag = false;
                 break;
             }
@@ -492,33 +493,33 @@ public class Numbers {
     //Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You can return a new array.
     public int[] shiftLeft(int[] nums) {
         int tem = nums[0];
-        for(int i=0;i<nums.length-1;i++){
-            nums[i]=nums[i+1];
+        for (int i = 0; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
         }
-        nums[nums.length-1]=tem;
+        nums[nums.length - 1] = tem;
         return nums;
     }
 
     //Pass 2 arrays of ints to a method. The method should return the average of the values across the 2 arrays.
     // The avg returned should be exact and not an approximation.
-    public float findAverageAcrossArrays(int[] a ,int[] b){
-        int sum=0;
+    public float findAverageAcrossArrays(int[] a, int[] b) {
+        int sum = 0;
         float avg = 0.0f;
-        for(int i =0;i<a.length;i++){
-            sum = sum+a[i];
+        for (int i = 0; i < a.length; i++) {
+            sum = sum + a[i];
         }
-        for(int i =0;i<b.length;i++){
-            sum = sum+b[i];
+        for (int i = 0; i < b.length; i++) {
+            sum = sum + b[i];
         }
-        float avgA= sum/(float)(a.length+b.length);
+        float avgA = sum / (float) (a.length + b.length);
         return avgA;
     }
 
     //Pass an int as parameter.
     // The method should return whether the number passed is a square (like i/p-> 100, 9, 16, etc -> o/p should be true) or not.
-    public boolean isSquare(int num){
+    public boolean isSquare(int num) {
         int sqrt = (int) Math.sqrt(num);
-        if(sqrt*sqrt == num)
+        if (sqrt * sqrt == num)
             return true;
         else
             return false;
@@ -526,46 +527,46 @@ public class Numbers {
 
     //Pass an int as parameter.Ex:cba as input. If it contains 3 digits, the returned value should be a+ b*b + c*c*c where a is the units,
     // b is the tens and c is the third digit. Be careful of overflow here. 234-->4+3*3+2*2*2 = 21
-    public int findSum(int num){
-       int sum=0;
-       int dig=0;
-       for(int i =1;num!=0;i++){
-           dig = num%10; //4 ,3 ,2
-           sum = sum+(int)Math.pow(dig,i); //4,4+3*3+2*2*2
-           num = num/10; //23 ,2
-       }
-       return sum;
+    public int findSum(int num) {
+        int sum = 0;
+        int dig = 0;
+        for (int i = 1; num != 0; i++) {
+            dig = num % 10; //4 ,3 ,2
+            sum = sum + (int) Math.pow(dig, i); //4,4+3*3+2*2*2
+            num = num / 10; //23 ,2
+        }
+        return sum;
     }
 
     //Accept an int as input and return whether the number is a palindrome or not. Ex: 131-->true , 123-->false
-    public boolean isPalindrome(int num){
+    public boolean isPalindrome(int num) {
         int temp = num;
-        int rem =0;
-        int rev =0;
-        while(temp !=0){
-            rem =temp%10;
-            rev= rev*10+rem;
-            temp = temp/10;
+        int rem = 0;
+        int rev = 0;
+        while (temp != 0) {
+            rem = temp % 10;
+            rev = rev * 10 + rem;
+            temp = temp / 10;
         }
 
-        if(rev == num)
+        if (rev == num)
             return true;
         else
             return false;
     }
 
     //Passing 2 arrays of ints to a method. The method should return the minimum value present across both the array elements.
-    public int findMinimumAcrossArrays(int [] a , int[] b){
+    public int findMinimumAcrossArrays(int[] a, int[] b) {
         Arrays.sort(a);
         Arrays.sort(b);
-        int min =0;
-        for(int i =0;i<a.length;i++){
-            if(a[i]<min){
+        int min = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < min) {
                 min = a[i];
             }
         }
-        for(int i =0;i<b.length;i++){
-            if(b[i]<min){
+        for (int i = 0; i < b.length; i++) {
+            if (b[i] < min) {
                 min = b[i];
             }
         }
@@ -573,15 +574,15 @@ public class Numbers {
     }
 
     //Accept an int array. Return an array which contains only unique elements.
-    public int[] makeUniQueElementArray(int[] a){
-        HashSet<Integer>  h = new HashSet<>();
-        for(int i: a){
+    public int[] makeUniQueElementArray(int[] a) {
+        HashSet<Integer> h = new HashSet<>();
+        for (int i : a) {
             h.add(i);
         }
         int[] res = new int[h.size()];
-        int k=0;
-        for(int i : h){
-            res[k]= i;
+        int k = 0;
+        for (int i : h) {
+            res[k] = i;
             k++;
         }
 
@@ -589,15 +590,15 @@ public class Numbers {
     }
 
     //Passing 2 arrays of ints to a method. The method should return the max value present across both the array elements.
-    public int findMaximumAcrossArrays(int[] arr1,int[] arr2){
-        int max=0;
-        for(int i=0;i<arr1.length;i++){
-            if(arr1[i]>max)
-                max=arr1[i];
+    public int findMaximumAcrossArrays(int[] arr1, int[] arr2) {
+        int max = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] > max)
+                max = arr1[i];
         }
-        for(int i=0;i<arr2.length;i++){
-            if(arr2[i]>max)
-                max=arr2[i];
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] > max)
+                max = arr2[i];
         }
         return max;
     }
@@ -607,14 +608,61 @@ public class Numbers {
     // posNeg(-1, 1, false)--> true , posNeg(-4, -5, true)--> true , posNeg(4, -5, true) --> false
 
     public boolean posNeg(int a, int b, boolean negative) {
-        if(a<0 && b>0 && negative ==false)
+        if (a < 0 && b > 0 && negative == false)
             return true;
-        else if (a>0 && b<0 && negative == false)
+        else if (a > 0 && b < 0 && negative == false)
             return true;
-        else if (a< 0 && b<0 && negative == true)
+        else if (a < 0 && b < 0 && negative == true)
             return true;
         else return false;
 
+    }
+
+    //Given an array of ints, we'll say that a triple is a value appearing 3 times continuously in a row in the array.
+    // Return true if the array does not contain any triples. noTriples({1, 1, 2, 2, 1})--> true ,
+    // noTriples({1, 1, 2, 2, 2, 1})--> false , noTriples({1, 1, 1, 2, 2, 2, 1}) --> false
+    public boolean noTriples(int[] nums) {
+        for (int i = 0; i < nums.length - 3; i++) {
+            if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2])
+                return false;
+        }
+        return true;
+    }
+
+    //Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+    // sumDouble(1, 2)--> 3 , sumDouble(3, 2)--> 5 , sumDouble(2, 2)--> 8
+    public int sumDouble(int a, int b) {
+        if (a == b)
+            return (a + b) * 2;
+        else
+            return (a + b);
+    }
+
+    //Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+    // icyHot(120, -1)--> true , icyHot(-1, 120)--> true , icyHot(2, 120) --> false
+    public boolean icyHot(int temp1, int temp2) {
+        if (temp1 < 0 && temp2 > 100 || temp1 > 100 && temp2 < 0)
+            return true;
+        else
+            return false;
+    }
+
+    //Pass 2 int arrays as parameters. The method should return one array with only unique elements across both the arrays.
+    public int[] createUniqueElementArray(int[] a, int[] b) {
+        Set<Integer> newHashArr = new HashSet<>();
+
+        for (int i : a)
+            newHashArr.add(i);
+        for (int i : b)
+            newHashArr.add(i);
+
+        int[] res = new int[newHashArr.size()];
+        int k = 0;
+        for (int i : newHashArr) {
+            res[k] = i;
+            k++;
+        }
+        return res;
     }
 
 }

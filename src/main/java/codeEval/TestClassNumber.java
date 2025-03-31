@@ -172,5 +172,17 @@ public class TestClassNumber {
         System.out.println("46 - Given 2 int values, return true if one is negative and one is positive. \n" +
                 "Except if the parameter 'negative' is true, then return true only if both are negative."+n.posNeg(1, -1, false) +" " +n.posNeg(-1, 1, false)+ " "+ n.posNeg(-4, -5, true)+ " "+ n.posNeg(4, -5, true));
 
+        System.out.println("47 - Given an array of ints, we'll say that a triple is a value appearing 3 times continuously in a row in the array. \n" +
+                "Return true if the array does not contain any triples. noTriples({1, 1, 2, 2, 1})--> true , \n" +
+                "noTriples({1, 1, 2, 2, 2, 1})--> false , noTriples({1, 1, 1, 2, 2, 2, 1}) --> false - "+n.noTriples(new int[]{1, 1, 2, 2, 1})+ " "+ n.noTriples(new int[]{1, 1, 2, 2, 2, 1})+ " "+n.noTriples(new int[]{1, 1, 2, 2, 2, 1}));
+        System.out.println("48 - Given two int values, return their sum. Unless the two values are the same, then return double their sum - "+
+                n.sumDouble(1,2)+ " "+n.sumDouble(3,2)+ " "+n.sumDouble(2,2));
+        System.out.println("49 - Given two temperatures, return true if one is less than 0 and the other is greater than 100.\n" +
+                n.icyHot(120, -1)+"  "+ n.icyHot(-1, 120)+" "+n.icyHot(2, 120));
+        System.out.println("50- Pass 2 int arrays as parameters. The method should return one array with only unique elements across both the arrays");
+        int[] out10 = n.createUniqueElementArray(new int[]{1,2,45,5,6,7,7,45,22},new int[]{0,0,3,4,5,6}) ;
+        for(int i : out10)
+            System.out.print(i + " ");
+
     }
 }

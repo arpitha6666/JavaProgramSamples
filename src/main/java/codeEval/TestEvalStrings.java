@@ -135,6 +135,13 @@ public class TestEvalStrings {
                 "The frequency of each character in the first string should be same as the second String.\n" +
                 "Then only you can say that the string1 is a permutation of the other - "+ obj.isStringPermute("uttara","rutata")+ " "+obj.isStringPermute("java","ja va"));
         System.out.println("43 - Given a string, take the last char and return a new string with the last char added at the front and back - "+obj.backAround("cat"));
+        System.out.println("44 - Given a string name, e.g. 'Bob', return a greeting of the form 'Hello Bob!'\n" +
+                obj.helloName("X!Bob"));
+
+        System.out.println("45 - Given a string, if the string begins with \"red\" or \"blue\" return that color string, otherwise return the original string\n" +
+                obj.seeColor("redxx")+ " " +obj.seeColor("xxred") +" " +obj.seeColor("blueTimes"));
+        System.out.println("46 - Given a string, return true if the string starts with 'hi' and false otherwise. \n"
+                +obj.startHi("hi there")+ " "+obj.startHi("hi")+ " "+ obj.startHi("hello there"));
 
 
     }

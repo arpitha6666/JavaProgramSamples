@@ -424,6 +424,31 @@ public class EvalStrings {
         return str.charAt(str.length()-1)+str+str.charAt(str.length()-1);
     }
 
+    //Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
+    // helloName("Bob")-->"Hello Bob!" , helloName("Alice")-->"Hello Alice!" , helloName("X")-->"Hello X!"
+    public String helloName(String name) {
+        return "Hello "+name;
+    }
+
+    //Given a string, if the string begins with "red" or "blue" return that color string,
+    // otherwise return the original string. seeColor("redxx")-->"red" , seeColor("xxred")-->"xxred " , seeColor("blueTimes")-->"blue"
+    public String seeColor(String str) {
+        if(str.startsWith("red"))
+            return "red";
+        else if (str.startsWith("blue"))
+            return "blue";
+        else return str;
+
+    }
+
+    //Given a string, return true if the string starts with "hi" and false otherwise.
+    // startHi("hi there")--> true , startHi("hi")--> true , startHi("hello hi")--> false
+    public boolean startHi(String str) {
+        if(str.startsWith("hi"))
+                return true;
+        else return false;
+    }
+
 }
 
 
