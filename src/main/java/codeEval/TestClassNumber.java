@@ -147,5 +147,30 @@ public class TestClassNumber {
         for(int i : out8)
             System.out.print(i + " ");
 
+        System.out.println("39 - Pass 2 arrays of ints to a method. The method should return the average of the values across the 2 arrays. \n" +
+                "The avg returned should be exact and not an approximation - "+n.findAverageAcrossArrays(new int[]{1,2,45,5,6,7,0,9,22},new int[]{0,0,3,4,5,6}));
+
+        System.out.println("40 - Pass an int as parameter. The method should return whether the number passed is a square \n" +
+                "(like i/p-> 100, 9, 16, etc -> o/p should be true) or not - "+n.isSquare(100)+ " "+ n.isSquare(79));
+
+        System.out.println("41 -Pass an int as parameter.Ex:cba as input. If it contains 3 digits, the returned value should be a+ b*b + c*c*c where a is the units, \n" +
+                "b is the tens and c is the third digit. Be careful of overflow here. 234-->4+3*3+2*2*2 = 21  is "+ n.findSum(536));
+
+        System.out.println("42 - Accept an int as input and return whether the number is a palindrome or not - "+n.isPalindrome(151) + " "+ n.isPalindrome(167));
+
+        System.out.println("43 - Passing 2 arrays of ints to a method. \n" +
+                "The method should return the minimum value present across both the array elements - "+n.findMinimumAcrossArrays(new int[]{1,2,45,5,6,7,0,9,22},new int[]{0,0,3,4,5,6}));
+
+        System.out.println("44 - Accept an int array. Return an array which contains only unique elements -");
+        int[] out9 = n.makeUniQueElementArray(new int[]{1,2,45,5,6,7,7,45,22});
+        for(int i : out9)
+            System.out.print(i + " ");
+
+        System.out.println("45 - Passing 2 arrays of ints to a method. \n" +
+                "The method should return the max value present across both the array elements "+n.findMaximumAcrossArrays(new int[]{1,2,45,5,6,7,0,9,22},new int[]{0,0,3,4,5,6}));
+
+        System.out.println("46 - Given 2 int values, return true if one is negative and one is positive. \n" +
+                "Except if the parameter 'negative' is true, then return true only if both are negative."+n.posNeg(1, -1, false) +" " +n.posNeg(-1, 1, false)+ " "+ n.posNeg(-4, -5, true)+ " "+ n.posNeg(4, -5, true));
+
     }
 }

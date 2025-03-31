@@ -3,6 +3,7 @@ package codeEval;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 
 public class Numbers {
     //Pass two ints as parameter and return the sum of numbers.
@@ -497,4 +498,124 @@ public class Numbers {
         nums[nums.length-1]=tem;
         return nums;
     }
+
+    //Pass 2 arrays of ints to a method. The method should return the average of the values across the 2 arrays.
+    // The avg returned should be exact and not an approximation.
+    public float findAverageAcrossArrays(int[] a ,int[] b){
+        int sum=0;
+        float avg = 0.0f;
+        for(int i =0;i<a.length;i++){
+            sum = sum+a[i];
+        }
+        for(int i =0;i<b.length;i++){
+            sum = sum+b[i];
+        }
+        float avgA= sum/(float)(a.length+b.length);
+        return avgA;
+    }
+
+    //Pass an int as parameter.
+    // The method should return whether the number passed is a square (like i/p-> 100, 9, 16, etc -> o/p should be true) or not.
+    public boolean isSquare(int num){
+        int sqrt = (int) Math.sqrt(num);
+        if(sqrt*sqrt == num)
+            return true;
+        else
+            return false;
+    }
+
+    //Pass an int as parameter.Ex:cba as input. If it contains 3 digits, the returned value should be a+ b*b + c*c*c where a is the units,
+    // b is the tens and c is the third digit. Be careful of overflow here. 234-->4+3*3+2*2*2 = 21
+    public int findSum(int num){
+       int sum=0;
+       int dig=0;
+       for(int i =1;num!=0;i++){
+           dig = num%10; //4 ,3 ,2
+           sum = sum+(int)Math.pow(dig,i); //4,4+3*3+2*2*2
+           num = num/10; //23 ,2
+       }
+       return sum;
+    }
+
+    //Accept an int as input and return whether the number is a palindrome or not. Ex: 131-->true , 123-->false
+    public boolean isPalindrome(int num){
+        int temp = num;
+        int rem =0;
+        int rev =0;
+        while(temp !=0){
+            rem =temp%10;
+            rev= rev*10+rem;
+            temp = temp/10;
+        }
+
+        if(rev == num)
+            return true;
+        else
+            return false;
+    }
+
+    //Passing 2 arrays of ints to a method. The method should return the minimum value present across both the array elements.
+    public int findMinimumAcrossArrays(int [] a , int[] b){
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int min =0;
+        for(int i =0;i<a.length;i++){
+            if(a[i]<min){
+                min = a[i];
+            }
+        }
+        for(int i =0;i<b.length;i++){
+            if(b[i]<min){
+                min = b[i];
+            }
+        }
+        return min;
+    }
+
+    //Accept an int array. Return an array which contains only unique elements.
+    public int[] makeUniQueElementArray(int[] a){
+        HashSet<Integer>  h = new HashSet<>();
+        for(int i: a){
+            h.add(i);
+        }
+        int[] res = new int[h.size()];
+        int k=0;
+        for(int i : h){
+            res[k]= i;
+            k++;
+        }
+
+        return res;
+    }
+
+    //Passing 2 arrays of ints to a method. The method should return the max value present across both the array elements.
+    public int findMaximumAcrossArrays(int[] arr1,int[] arr2){
+        int max=0;
+        for(int i=0;i<arr1.length;i++){
+            if(arr1[i]>max)
+                max=arr1[i];
+        }
+        for(int i=0;i<arr2.length;i++){
+            if(arr2[i]>max)
+                max=arr2[i];
+        }
+        return max;
+    }
+
+    //Given 2 int values, return true if one is negative and one is positive. Except if the parameter "negative" is true,
+    // then return true only if both are negative. posNeg(1, -1, false)--> true ,
+    // posNeg(-1, 1, false)--> true , posNeg(-4, -5, true)--> true , posNeg(4, -5, true) --> false
+
+    public boolean posNeg(int a, int b, boolean negative) {
+        if(a<0 && b>0 && negative ==false)
+            return true;
+        else if (a>0 && b<0 && negative == false)
+            return true;
+        else if (a< 0 && b<0 && negative == true)
+            return true;
+        else return false;
+
+    }
+
 }
+

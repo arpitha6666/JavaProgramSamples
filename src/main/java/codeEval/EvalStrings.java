@@ -1,5 +1,6 @@
 package codeEval;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -250,36 +251,37 @@ public class EvalStrings {
     public String atFirst(String str) {
         if (str.length() == 2)
             return str;
-         else if(str.length()>2)
+        else if (str.length() > 2)
             return str.substring(0, 2);
-         else if(str.length()==1)
-             return str+"@";
-         else return "@@";
+        else if (str.length() == 1)
+            return str + "@";
+        else return "@@";
     }
 
     //Check if string has all unique characters(considering white spaces and case sensitivity).
     // Eg: i/p : reghav o/p : true i/p : raghav o/p : false
-    public boolean isStringUnique(String s){
+    public boolean isStringUnique(String s) {
         HashSet<Character> res = new HashSet<>();
         char[] c = s.toCharArray();
-        for(char d : c){
+        for (char d : c) {
             res.add(d);
         }
-        if(s.length() == res.size())
+        if (s.length() == res.size())
             return true;
         else
             return false;
     }
+
     //Perform basic string compression using counts of repeated characters. (If the compressed string is larger than or equal to
     // the orginal string(in length) then the original string should be returned) Eg: i/p : aaaaccccbbbhhhjj o/p : a4c4b3h3j2
-    public String countsOfRepeatNum(String str){
+    public String countsOfRepeatNum(String str) {
         StringBuilder result = new StringBuilder();
-        int i =0;
-        while(i<str.length()){
+        int i = 0;
+        while (i < str.length()) {
             char currentChar = str.charAt(i);
-            int count=1; //count first char as 1
+            int count = 1; //count first char as 1
 
-            while(i+1<str.length() && str.charAt(i+1)==currentChar){
+            while (i + 1 < str.length() && str.charAt(i + 1) == currentChar) {
                 count++;
                 i++;
             }
@@ -291,18 +293,18 @@ public class EvalStrings {
 
     }
 
-    public String countsOfRepeatNumUsingFor(String str){
+    public String countsOfRepeatNumUsingFor(String str) {
         StringBuilder result = new StringBuilder();
-        int count=1; //count first char as 1
+        int count = 1; //count first char as 1
         char prevChar = str.charAt(0);
-        for(int i=1;i<str.length();i++){
+        for (int i = 1; i < str.length(); i++) {
             char currentChar = str.charAt(i);
-            if(prevChar ==currentChar) {
+            if (prevChar == currentChar) {
                 count++;
-            }else{
+            } else {
                 result.append(currentChar).append(count);
-                prevChar=currentChar;
-                count=1;
+                prevChar = currentChar;
+                count = 1;
             }
         }
         return result.toString();
@@ -311,21 +313,21 @@ public class EvalStrings {
     //Pass two Strings. Check whether the second String is rotated form of the first String.
     //ars sra - arsars
     public boolean isStringRotated(String s1, String s2) {
-        if( (s1+s1).contains(s2))
+        if ((s1 + s1).contains(s2))
             return true;
         else
             return false;
     }
 
     //Accept a string as input. The method should return a string which does not contain any repeating characters.
-    public String noRepeat(String str){
+    public String noRepeat(String str) {
         StringBuilder sb = new StringBuilder();
         Set<Character> input = new HashSet<>();
         char[] c = str.toCharArray();
-        for(int i=0;i<c.length;i++){
+        for (int i = 0; i < c.length; i++) {
             input.add(c[i]);
         }
-        for(Character i : input){
+        for (Character i : input) {
             sb.append(i);
         }
         return sb.toString();
@@ -333,11 +335,11 @@ public class EvalStrings {
 
     //Pass a string as parameter. Convert the string characters to lowercase if it is uppercase and to uppercase if its lowercase.
     // If there are digits or special chars in the string, they should be omitted.
-    public String convertCase(String s){
+    public String convertCase(String s) {
         StringBuilder sb = new StringBuilder();
-        char[] c =s.toCharArray();
-        for(int i=0;i<c.length;i++){
-            if(Character.isLetter(c[i])) {
+        char[] c = s.toCharArray();
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isLetter(c[i])) {
                 if (Character.isLowerCase(c[i]))
                     sb.append(Character.toUpperCase(c[i]));
                 else
@@ -352,10 +354,74 @@ public class EvalStrings {
 
     public String everyNth(String str, int n) {
         String res = "";
-        for(int i =0;i<str.length();i=i+n){
-            res= res+str.charAt(i);
+        for (int i = 0; i < str.length(); i = i + n) {
+            res = res + str.charAt(i);
         }
         return res;
+    }
+
+    //We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 3 int values, return true if 1 or more of them are teen.
+    public boolean hasTeen(int a, int b, int c) {
+        if ((a > 12 && a < 20) || (b > 12 && b < 20) || (c > 12 && c < 20)) {
+            return true;
+        } else
+            return true;
+    }
+
+    //Pass a string as parameter and return a boolean to indicate whether the string passed is a boolean or not.
+    public boolean isBoolean(String str) {
+        boolean b = Boolean.valueOf(str);
+        return b;
+    }
+
+    //Accept a string as parameter. Find out how many digits are present in the string.
+    public int countNumOfDigits(String s) {
+        int sum = 0;
+        char[] c = s.toCharArray();
+        for (char d : c) {
+            if (Character.isDigit(d))
+                sum++;
+        }
+        return sum;
+    }
+
+    //Pass a string as parameter. Reverse the string and return it.
+    // All the alphabets in the strings should be individually reversed and then returned.
+    public String reverseString(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
+    }
+
+    //Pass a string as parameter.Return a new string which contains the passed strings Characters in a sorted manner(Ascending).
+    public String sortString(String str) {
+        char[] c = str.toCharArray();
+        Arrays.sort(c);
+        return String.valueOf(c);
+    }
+
+    //Pass two strings.Check one is the permutation of the other. Case sensitivity and white space should be considered.
+// First you check the lengths (n), if they are not same, they cannot be permutations of each other.
+// The frequency of each character in the first string should be same as the second String.
+// Then only you can say that the string1 is a permutation of the other eg: i/p o/p uttara,rutata - true uttara,rutrta - false java, Ja va - false
+    public boolean isStringPermute(String s1, String s2) {
+        char[] c1 =s1.toCharArray();
+        char[] c2 =s2.toCharArray();
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+        s1=String.valueOf(c1);
+        s2=String.valueOf(c2);
+        if(s1.equals(s2))
+            return true;
+        else
+            return false;
+
+    }
+
+    //Given a string, take the last char and return a new string with the last char added at the front and back, so "cat" yields "tcatt".
+    // The original string will be length 1 or more. backAround("cat")-->tcatt , backAround("Hello")-->oHelloo , backAround("a")-->aaa
+    public String backAround(String str) {
+        return str.charAt(str.length()-1)+str+str.charAt(str.length()-1);
     }
 
 }

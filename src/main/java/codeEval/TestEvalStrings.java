@@ -120,6 +120,22 @@ public class TestEvalStrings {
         System.out.println("35 - Given a non-empty string and an int N, return the string made starting with char 0,\n"+
         "and then every N th char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more- "+obj.everyNth("wertyuiofghjkbhjk",2));
 
-        System.out.println("36 - "+obj.everyNth("wertyuiofghjkbhjk",2));
+        System.out.println("36 - We'll say that a number is \"teen\" if it is in the range 13..19 inclusive.\n" +
+                "Given 3 int values, return true if 1 or more of them are teen."+obj.hasTeen(12,13,14));
+
+        System.out.println("37 - Pass a string as parameter and return a boolean to indicate whether the string passed is a boolean or not - "+obj.isBoolean("true")+ " "+obj.isBoolean("false")+ " "+obj.isBoolean("true1"));
+
+        System.out.println("38 - Accept a string as parameter. Find out how many digits are present in the string - "+obj.countNumOfDigits("a1et4bin5m"));
+
+        System.out.println("39 - Pass a string as parameter. Reverse the string and return it. \n" +
+                "All the alphabets in the strings should be individually reversed and then returned - "+obj.reverseString("a1et4bin5m"));
+        System.out.println("41 - Pass a string as parameter.Return a new string which contains the passed strings \n" +
+                "Characters in a sorted manner(Ascending)- "+obj.sortString("artyujn"));
+        System.out.println("42 - Pass two strings.Check one is the permutation of the other. Case sensitivity an\n" +
+                "The frequency of each character in the first string should be same as the second String.\n" +
+                "Then only you can say that the string1 is a permutation of the other - "+ obj.isStringPermute("uttara","rutata")+ " "+obj.isStringPermute("java","ja va"));
+        System.out.println("43 - Given a string, take the last char and return a new string with the last char added at the front and back - "+obj.backAround("cat"));
+
+
     }
 }
