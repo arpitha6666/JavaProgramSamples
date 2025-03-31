@@ -1,5 +1,6 @@
 package codeEval;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -405,13 +406,13 @@ public class EvalStrings {
 // The frequency of each character in the first string should be same as the second String.
 // Then only you can say that the string1 is a permutation of the other eg: i/p o/p uttara,rutata - true uttara,rutrta - false java, Ja va - false
     public boolean isStringPermute(String s1, String s2) {
-        char[] c1 =s1.toCharArray();
-        char[] c2 =s2.toCharArray();
+        char[] c1 = s1.toCharArray();
+        char[] c2 = s2.toCharArray();
         Arrays.sort(c1);
         Arrays.sort(c2);
-        s1=String.valueOf(c1);
-        s2=String.valueOf(c2);
-        if(s1.equals(s2))
+        s1 = String.valueOf(c1);
+        s2 = String.valueOf(c2);
+        if (s1.equals(s2))
             return true;
         else
             return false;
@@ -421,19 +422,19 @@ public class EvalStrings {
     //Given a string, take the last char and return a new string with the last char added at the front and back, so "cat" yields "tcatt".
     // The original string will be length 1 or more. backAround("cat")-->tcatt , backAround("Hello")-->oHelloo , backAround("a")-->aaa
     public String backAround(String str) {
-        return str.charAt(str.length()-1)+str+str.charAt(str.length()-1);
+        return str.charAt(str.length() - 1) + str + str.charAt(str.length() - 1);
     }
 
     //Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
     // helloName("Bob")-->"Hello Bob!" , helloName("Alice")-->"Hello Alice!" , helloName("X")-->"Hello X!"
     public String helloName(String name) {
-        return "Hello "+name;
+        return "Hello " + name;
     }
 
     //Given a string, if the string begins with "red" or "blue" return that color string,
     // otherwise return the original string. seeColor("redxx")-->"red" , seeColor("xxred")-->"xxred " , seeColor("blueTimes")-->"blue"
     public String seeColor(String str) {
-        if(str.startsWith("red"))
+        if (str.startsWith("red"))
             return "red";
         else if (str.startsWith("blue"))
             return "blue";
@@ -444,9 +445,42 @@ public class EvalStrings {
     //Given a string, return true if the string starts with "hi" and false otherwise.
     // startHi("hi there")--> true , startHi("hi")--> true , startHi("hello hi")--> false
     public boolean startHi(String str) {
-        if(str.startsWith("hi"))
-                return true;
+        if (str.startsWith("hi"))
+            return true;
         else return false;
+    }
+
+    //Pass an array of strings and an int as parameters.
+    // Remove all strings which has length equal to or greater than the int that is passed from the array and return the array.
+    public String[] removeItems(String[] str, int size) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = 0; i < str.length; i++) {
+            if (!(str[i].length() >= size))
+                newList.add(str[i]);
+        }
+        String[] newstr = newList.toArray(new String[newList.size()]);
+        return newstr;
+    }
+
+    //Given a string, we'll say that the front is the first 3 chars of the string.
+    // If the string length is less than 3, the front is whatever is there.
+    // Return a new string which is 3 copies of the front.
+    // front3("Java") --> "JavJavJav" , front3("Chocolate") -->"ChoChoCho" , front3("abc") -->"abcabcabc"
+    public String front3(String str) {
+        if(str.length()<3)
+            return str;
+        else
+            return str.substring(0,3)+str.substring(0,3)+str.substring(0,3);
+    }
+
+    //Given an array of strings, return a new List (e.g. an ArrayList) where all the strings of the given length are omitted.
+    public ArrayList<String> wordsWithoutList(String[] words, int len) {
+        ArrayList<String> list = new ArrayList<>();
+        for(int i =0;i<words.length;i++){
+            if(!(words[i].length() == len))
+                list.add(words[i]);
+        }
+       return list;
     }
 
 }

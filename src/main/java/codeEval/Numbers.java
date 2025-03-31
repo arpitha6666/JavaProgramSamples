@@ -665,5 +665,21 @@ public class Numbers {
         return res;
     }
 
+    //Pass 2 strings as input. Find out how many times does the second param occur in the first one
+    // (number of occurrences) and return the count.
+    public int findNumOfOccurrences(String input, String matcher) {
+        int count = 0;
+        int i = input.indexOf(matcher);
+        while (i > -1) {
+            count++;
+            i = input.indexOf(matcher, i + matcher.length());
+        }
+        return count;
+    }
+
+    //Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array.
+    // Note: the built-in Math.min(v1, v2) and Math.max(v1, v2) methods return the smaller or larger of two values.
+
+
 }
 

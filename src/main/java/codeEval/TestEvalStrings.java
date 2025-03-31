@@ -142,7 +142,18 @@ public class TestEvalStrings {
                 obj.seeColor("redxx")+ " " +obj.seeColor("xxred") +" " +obj.seeColor("blueTimes"));
         System.out.println("46 - Given a string, return true if the string starts with 'hi' and false otherwise. \n"
                 +obj.startHi("hi there")+ " "+obj.startHi("hi")+ " "+ obj.startHi("hello there"));
+        System.out.println("47 - Pass an array of strings and an int as parameters.Remove all strings which has length equal to or greater than \n" +
+                "the int that is passed from the array and return the array ");
+        String[] result = obj.removeItems(new String[]{"ars","arpitha","Ahana"},5);
+        for(String i : result)
+            System.out.println(i);
 
+        System.out.println("48 - Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, \n" +
+                        "the front is whatever is there. Return a new string which is 3 copies of the front- "+
+                obj.front3("Java") + " " +obj.front3("Chocolate") + " " +obj.front3("ab"));
+
+        System.out.println("49 - Given an array of strings, return a new List (e.g. an ArrayList) where all the strings of the given length are omitted\n"+
+                obj.wordsWithoutList(new String[]{"ars","arpitha","Ahana"}, 3));
 
     }
 }

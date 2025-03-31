@@ -183,6 +183,9 @@ public class TestClassNumber {
         int[] out10 = n.createUniqueElementArray(new int[]{1,2,45,5,6,7,7,45,22},new int[]{0,0,3,4,5,6}) ;
         for(int i : out10)
             System.out.print(i + " ");
+        System.out.println("51 - Pass 2 strings as input. Find out how many times does the second param occur in the first one\n" +
+                " (number of occurrences) and return the count - "+n.findNumOfOccurrences("arpitha", "i"));
+
 
     }
 }
