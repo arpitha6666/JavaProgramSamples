@@ -524,7 +524,7 @@ public class EvalStrings {
     // so "HelloHe" yields "lloHe Otherwise, return the original string unchanged.
     public String without2(String str) {
         String start = str.substring(0, 2);
-        String end = str.substring(str.length()-2);
+        String end = str.substring(str.length() - 2);
         if (str.startsWith(start) && str.startsWith(end))
             return str.substring(2);
         else
@@ -532,6 +532,80 @@ public class EvalStrings {
 
     }
 
+    //Return a version of the given array where all the 10's have been removed.
+    // The remaining elements should shift left towards the start of the array as needed,
+    // and the empty spaces a the end of the array should be 0.
+    // So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+    public int[] withoutTen(int[] num) {
+        int[] newArr = new int[num.length];
+        int k = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] != 10) {
+                newArr[k] = num[i];
+                k++;
+            }
+        }
+        return newArr;
+    }
+
+    //Given an array of ints, return true if the array contains two 7's next to each other,
+    // or there are two 7's separated by one element, such as with {7, 1, 7}.
+    public boolean has77(int[] num) {
+        for (int i = 0; i < num.length - 2; i++) {
+            if ((num[i] == 7 && num[i + 1] == 7) || (num[i] == 7 && num[i + 2] == 7))
+                return true;
+        }
+        return false;
+    }
+
+
+    //You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2.
+    // If they are all the value 2, the result is 10.
+    // Otherwise if they are all the same, the result is 5.
+    // Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.
+    public int redTicket(int a, int b, int c) {
+        if (a == 2 && b == 2 && c == 2)
+            return 10;
+        else if (a == b && b == c && c == a)
+            return 5;
+        else if (a != b && b != c && c != a)
+            return 1;
+        else
+            return 0;
+    }
+
+    //We are having a party with amounts of tea and candy.
+    // Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great.
+    // A party is good (1) if both tea and candy are at least 5.
+    // However, if either tea or candy is at least double the amount of the other one,the party is great (2).
+    // However, in all cases, if either tea or candy is less than 5, the party is always bad (0).
+    public int teaParty(int tea, int candy) {
+        if (tea >= 5 && candy >= 5 && (tea >= candy * 2 || candy == tea * 2))
+            return 2;
+        else if (tea >= 5 && candy >= 5)
+            return 1;
+        else
+            return 0;
+    }
+
+    //When squirrels get together for a party, they like to have cigars.
+    // A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
+    // Unless it is the weekend, in which case there is no upper bound on the number of cigars.
+    // Return true if the party with the given values is successful, or false otherwise.
+    public boolean cigarParty(int cigars, boolean isWeekend){
+        if(cigars>=40 && cigars<=60 && isWeekend == false)
+            return true;
+        else if(isWeekend == true && cigars>=40)
+            return true;
+        else
+            return false;
+    }
+
+    //Given two ints, each in the range 10..99, return true if there is a digit that appears in both numbers,
+    // such as the 2 in 12 and 23. (Note: division, e.g. n/10, gives the left digit while the % "mod" n%10 gives the right digit.)
+    public boolean shareDigit(int a, int b){
+
+    }
 }
 
 
