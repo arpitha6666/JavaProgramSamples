@@ -1,5 +1,7 @@
 package codeEval;
 
+import com.sun.corba.se.impl.orb.ParserTable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -483,7 +485,34 @@ public class EvalStrings {
        return list;
     }
 
-}
+    //Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx" but not "xxbadxx".
+    // The string may be any length Note: use .equals() to compare 2 strings.
+    public boolean hasBad(String str) {
+        if((str.startsWith("bad")) || (str.startsWith("bad",1)))
+            return true;
+        else
+            return false;
+    }
+
+    //Given two strings, append them together ( known as "concatenation" ) and return the result.
+    // However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string.
+    // So "Hello" and "Hi" yield "loHi". The strings may be any length.
+    public String minCat(String a, String b) {
+        int len1 = a.length(); //5
+        int len2 = b.length(); //2
+        if(len1>len2)
+            return a.substring((len1-len2))+b;
+        else if (len1<len2)
+            return a+b.substring((len2-len1));
+        else
+            return a+b;
+    }
+
+    //Given a string, return a new string made of 3 copies of the first 2 chars of the original string. The string may be any length. If there are fewer than 2 chars, use whatever is there.
+
+
+
+    }
 
 
 

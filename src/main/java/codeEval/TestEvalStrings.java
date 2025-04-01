@@ -154,6 +154,13 @@ public class TestEvalStrings {
 
         System.out.println("49 - Given an array of strings, return a new List (e.g. an ArrayList) where all the strings of the given length are omitted\n"+
                 obj.wordsWithoutList(new String[]{"ars","arpitha","Ahana"}, 3));
+        System.out.println("50 - Given a string, return true if \"bad\" appears starting at index 0 or 1 in the string\n"+
+                obj.hasBad("badxxx")+" "+obj.hasBad("xbadxx")+ " " +obj.hasBad("xxbadxx"));
+        System.out.println("51 - Given two strings, append them together and return the result.\n" +
+                "However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string."+
+                obj.minCat("Hello", "hi"));
+
+
 
     }
 }

@@ -185,7 +185,21 @@ public class TestClassNumber {
             System.out.print(i + " ");
         System.out.println("51 - Pass 2 strings as input. Find out how many times does the second param occur in the first one\n" +
                 " (number of occurrences) and return the count - "+n.findNumOfOccurrences("arpitha", "i"));
+        System.out.println("52 - Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array -"
+        +n.bigDiff(new int[]{1,2,45,5,6,7,7,45,22}));
 
+        System.out.println("53 - Given non-empty array of ints, return a new array length 2 containing the first and last elements from the original array. " +
+                "\nThe original array will be length 1 or more - ");
+        int[] out11= n.make_ends(new int[]{1,2,45,5,6,7,7,45,22});
+        for(int i : out11)
+            System.out.print(i + " ");
+        System.out.println("54 - We'll say that a value is 'everywhere' in an array if for every pair of adjacent elements in the array, at least one of the pair is that value \n"+
+                "Return true if the given value is everywhere in the array -"+n.isEverywhere(new int[]{1,2,45,5,6,7,7,45,22},2) + " "+n.isEverywhere(new int[]{2,2},2));
+        System.out.println("55- For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, \n" +
+                "until encountering another multiple of 10 - ");
+        int[] out12 = n.tenRun(new int[] {2, 10, 3, 4, 20, 5});
+        for(int i : out12)
+            System.out.print(i+ " ") ;
 
     }
 }

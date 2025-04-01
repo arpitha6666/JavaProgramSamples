@@ -679,7 +679,77 @@ public class Numbers {
 
     //Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array.
     // Note: the built-in Math.min(v1, v2) and Math.max(v1, v2) methods return the smaller or larger of two values.
+    public int bigDiff(int[] num) {
+        int min = num[0];
+        int max = num[0];
+        for (int i = 1; i < num.length; i++) {
+            min = Math.min(num[i], min);
+            max = Math.max(num[i], max);
+        }
+        return (max - min);
+    }
+
+    //Given non-empty array of ints, return a new array length 2 containing the first and last elements from the original array.
+    // The original array will be length 1 or more.
+    public int[] make_ends(int[] arr) {
+        int[] newArr = new int[2];
+        if (arr.length == 2)
+            return arr;
+        else if (arr.length > 2) {
+            newArr[0] = arr[0];
+            newArr[1] = arr[arr.length - 1];
+        } else
+            throw new RuntimeException("Array length must be atleast 2");
+        return newArr;
+    }
+
+    //We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array, at least one of the pair is that value.
+    // Return true if the given value is everywhere in the array.
+    public boolean isEverywhere(int[] num, int val) {
+        for(int i=0;i<num.length-1;i++){
+            if(!(num[i] == val && num[i+i]==val))
+                return false;
+        }
+        return true;
+    }
 
 
+    //For each multiple of 10 in the given array, change all the values following it to be that multiple of 10,
+    // until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
+    public int[] tenRun(int[] num){
+        for(int i =0;i<num.length-1;i++){
+            if(num[i]%10==0 && num[i+1]%10!=0){
+                num[i+1]=num[i];
+            }
+        }
+        return num;
+    }
+
+    //Return true if the group of N numbers at the start and end of the array are the same.
+    // For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2, and false for n=1 and n=3.
+    // You may assume that n is in the range 0..nums.length inclusive.
+    public boolean sameEnds(int[] nums, int len) {
+        int[] a1 = new int[len];
+        int[] a2 = new int[len];
+
+        a1 = Arrays.copyOfRange(nums,0,len);
+        a2 = Arrays.copyOfRange(nums,nums.length-len,nums.length);
+
+        if(Arrays.equals(a1,a2))
+            return true;
+        else
+            return false;
+    }
+
+    //Given an array of ints, return true if every 2 that appears in the array is next to another 2.
+    public boolean every2(int[] a){
+        for(int i=0;i<a.length-1;i++){
+            if(a[i]==2 && a[i+1]==2)
+                return true;
+        }
+        return false;
+    }
 }
+
+
 
