@@ -469,26 +469,26 @@ public class EvalStrings {
     // Return a new string which is 3 copies of the front.
     // front3("Java") --> "JavJavJav" , front3("Chocolate") -->"ChoChoCho" , front3("abc") -->"abcabcabc"
     public String front3(String str) {
-        if(str.length()<3)
+        if (str.length() < 3)
             return str;
         else
-            return str.substring(0,3)+str.substring(0,3)+str.substring(0,3);
+            return str.substring(0, 3) + str.substring(0, 3) + str.substring(0, 3);
     }
 
     //Given an array of strings, return a new List (e.g. an ArrayList) where all the strings of the given length are omitted.
     public ArrayList<String> wordsWithoutList(String[] words, int len) {
         ArrayList<String> list = new ArrayList<>();
-        for(int i =0;i<words.length;i++){
-            if(!(words[i].length() == len))
+        for (int i = 0; i < words.length; i++) {
+            if (!(words[i].length() == len))
                 list.add(words[i]);
         }
-       return list;
+        return list;
     }
 
     //Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx" but not "xxbadxx".
     // The string may be any length Note: use .equals() to compare 2 strings.
     public boolean hasBad(String str) {
-        if((str.startsWith("bad")) || (str.startsWith("bad",1)))
+        if ((str.startsWith("bad")) || (str.startsWith("bad", 1)))
             return true;
         else
             return false;
@@ -500,19 +500,39 @@ public class EvalStrings {
     public String minCat(String a, String b) {
         int len1 = a.length(); //5
         int len2 = b.length(); //2
-        if(len1>len2)
-            return a.substring((len1-len2))+b;
-        else if (len1<len2)
-            return a+b.substring((len2-len1));
+        if (len1 > len2)
+            return a.substring((len1 - len2)) + b;
+        else if (len1 < len2)
+            return a + b.substring((len2 - len1));
         else
-            return a+b;
+            return a + b;
     }
 
-    //Given a string, return a new string made of 3 copies of the first 2 chars of the original string. The string may be any length. If there are fewer than 2 chars, use whatever is there.
-
-
+    //Given a string, return a new string made of 3 copies of the first 2 chars of the original string.
+    // The string may be any length. If there are fewer than 2 chars, use whatever is there.
+    public String extraFront(String str) {
+        String rep = str.substring(0, 2);
+        if (str.length() < 2)
+            return str + str + str;
+        else
+            return rep + rep + rep;
 
     }
+
+    //Given a string, if a length 2 substring appears at both its beginning and end,
+    // return a string without the substring at the beginning,
+    // so "HelloHe" yields "lloHe Otherwise, return the original string unchanged.
+    public String without2(String str) {
+        String start = str.substring(0, 2);
+        String end = str.substring(str.length()-2);
+        if (str.startsWith(start) && str.startsWith(end))
+            return str.substring(2);
+        else
+            return str;
+
+    }
+
+}
 
 
 

@@ -749,6 +749,42 @@ public class Numbers {
         }
         return false;
     }
+
+    //Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1.
+    // The given n may be 0, in which case just return a length 0 array.
+    // You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case,
+    // so it just works. The syntax to make a new int array is: new int[desired_length]
+    public int[] fizzArray(int n){
+
+           int[] arr = new int[n];
+           for(int i =0;i<n;i++){
+               arr[i]=i;
+           }
+           return arr;
+    }
+
+    //Given an int array, return a new array with double the length where its last element is the same as the original array,
+    // and all the other elements are 0. The original array will be length 1 or more.
+    // Note: by default, a new int array contains all 0's.
+    public int[] makeLast(int[] num) {
+        int[] newArr = new int[num.length*2];
+        newArr[newArr.length-1]=num[num.length-1];
+        return newArr;
+    }
+
+    //Given arrays nums1 and nums2 of the same length, for every element in nums1,
+    // consider the corresponding element in nums2 (at the same index).
+    // Return the count of the number of times that the two elements differ by 2 or less, but are not equal.
+    public int matchUp(int[] num1, int[] num2){
+        int count=0;
+        for(int i =0;i<num1.length;i++){
+            if(num1[i]!=num2[i] && (Math.abs(num1[i]-num2[i]))<=2)
+                count++;
+        }
+        return count;
+    }
+
+    //
 }
 
 
