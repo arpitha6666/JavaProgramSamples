@@ -531,18 +531,18 @@ public class EvalStrings {
 
     //Return the number of times that the string "code" appears anywhere in the given string,
     // except we'll accept any letter for the 'd', so "cope" and "cooe" count.
-    public int codeAppear(String str){
+    public int codeAppear(String str) {
         int count = 0;
-        if(str.contains("code") || str.contains("cope") || str.contains("cooe"))
+        if (str.contains("code") || str.contains("cope") || str.contains("cooe"))
             count++;
         return count;
     }
 
     //Given a non-empty string like "Code" return a string like "CCoCodCode".
-    public String generateCode(String str){
+    public String generateCode(String str) {
         String sb = "";
-        for(int i=0;i<=str.length();i++){
-            sb = sb+str.substring(0,i); //c
+        for (int i = 0; i <= str.length(); i++) {
+            sb = sb + str.substring(0, i); //c
         }
         return sb;
     }
@@ -550,8 +550,8 @@ public class EvalStrings {
     //Given a string, return a string where for every char in the original, there are two chars.
     public String doubleChar(String str) {
         StringBuilder sb = new StringBuilder();
-        char[]c = str.toCharArray();
-        for(int i=0;i<str.length();i++){
+        char[] c = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
             sb.append(c[i]).append(c[i]);
         }
         return sb.toString();
@@ -561,9 +561,9 @@ public class EvalStrings {
     // Return a string where for all such words, the middle letter is gone, so "zipXzap" yields "zpXzp".
     public String zipZap(String str) {
         String res = "";
-        for(int i =0;i<str.length();i++) {
-            res = res+str.charAt(i);
-            if(str.charAt(i) == 'z' && str.charAt(i+2) == 'p')
+        for (int i = 0; i < str.length(); i++) {
+            res = res + str.charAt(i);
+            if (str.charAt(i) == 'z' && str.charAt(i + 2) == 'p')
                 i++;
         }
         return res;
@@ -571,11 +571,11 @@ public class EvalStrings {
 
     //Given a string, return a version without the first 2 chars.
     // Except keep the first char if it is 'a' and keep the second char if it is 'b'. The string may be any length.
-    public String deFront(String str){
-        if(str.charAt(0)=='a'  && str.charAt(1)=='b')
+    public String deFront(String str) {
+        if (str.charAt(0) == 'a' && str.charAt(1) == 'b')
             return str;
-        else if(str.charAt(0) == 'a')
-            return str.charAt(0)+str.substring(2);
+        else if (str.charAt(0) == 'a')
+            return str.charAt(0) + str.substring(2);
         else if (str.charAt(1) == 'b')
             return str.substring(1);
         else
@@ -585,9 +585,9 @@ public class EvalStrings {
 
     //Return true if the given string begins with "mix", except the 'm' can be anything, so "pix", "9ix" .. all count.
     public boolean mixStart(String str) {
-        if(str.startsWith("mix"))
+        if (str.startsWith("mix"))
             return true;
-        else if(str.substring(1).equals("ix"))
+        else if (str.substring(1).equals("ix"))
             return true;
         else
             return false;
@@ -595,10 +595,10 @@ public class EvalStrings {
 
     //A list of strings is given as input. Take n(String length) as int input.
     // Remove all strings having (length > = n )from the list and return it.
-    public ArrayList<String> removeStringFromList(ArrayList<String> arr,int n){
+    public ArrayList<String> removeStringFromList(ArrayList<String> arr, int n) {
         ArrayList<String> result = new ArrayList<>();
-        for(String s : arr){
-            if(s.length()<n)
+        for (String s : arr) {
+            if (s.length() < n)
                 result.add(s);
         }
         return result;
@@ -607,7 +607,7 @@ public class EvalStrings {
     //Remove all recurring(repeating) Strings from a given List
     public ArrayList<String> removeRecurringStrings(ArrayList<String> al) {
         Set<String> withoutReccur = new HashSet<>();
-        for(String i : al)
+        for (String i : al)
             withoutReccur.add(i);
         ArrayList<String> result = new ArrayList<>(withoutReccur);
         return result;
@@ -616,7 +616,7 @@ public class EvalStrings {
     //Sort the list containing Strings in ascending order(natural ordering)
     // Note:Spaces sort before digits and characters,and that digits sort before characters
     // and upper case characters sort before lowercase characters.
-    public ArrayList<String> listSort(ArrayList<String> al){
+    public ArrayList<String> listSort(ArrayList<String> al) {
         Collections.sort(al);
         return al;
     }
@@ -626,11 +626,11 @@ public class EvalStrings {
     public String stringX(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str.charAt(0));
-        for(int i =1;i<str.length()-1;i++) {
-            if (!(str.charAt(i)=='x'))
+        for (int i = 1; i < str.length() - 1; i++) {
+            if (!(str.charAt(i) == 'x'))
                 sb.append(str.charAt(i));
         }
-        sb.append(str.charAt(str.length()-1));
+        sb.append(str.charAt(str.length() - 1));
         return sb.toString();
     }
 
@@ -639,11 +639,10 @@ public class EvalStrings {
     // The strings will not be the same length, and >=1
     public String comboString(String a, String b) {
 
-        if(a.length() <b.length()){
-            return a+b+a;
-        }
-        else
-            return b+a+b;
+        if (a.length() < b.length()) {
+            return a + b + a;
+        } else
+            return b + a + b;
     }
 
     //Given a string, return a new string where "not " has been added to the front.
@@ -651,10 +650,46 @@ public class EvalStrings {
     // Note: use .equals() to compare 2 strings. notString("candy")-->"not candy" ,
     // notString("x")-->"not x" , notString("not bad")-->"not bad"
     public String notString(String str) {
-        if(str.startsWith("not"))
+        if (str.startsWith("not"))
             return str;
         else
-            return "not "+str;
+            return "not " + str;
+    }
+
+    //A list of strings is given as input. Remove words that do not have vowels from it and return the list.
+    public ArrayList<String> removeWordsHavingNoVowels(ArrayList<String> al) {
+        ArrayList<String> res = new ArrayList<String>();
+        for(String i : al){
+            if(i.contains("a") || i.contains("e") || i.contains("i") || i.contains("o") || i.contains("u") )
+                res.add(i);
+        }
+        return res;
+    }
+
+    //Given 2 strings, a and b, return the number of the positions where they contain the same length 2 substring.
+    //So "xxcaazz" and "xxbaaz" yields 3, since the "xx", "aa", and "az" substrings appear in the same place in both strings.
+    public int stringMatch(String a, String b) {
+        int count =0;
+        for(int i =0;i<a.length();i++)
+        {
+
+            if((i+2 <= a.length()) && (i+2 <= b.length()))
+                if(a.substring(i,i+2).equals(b.substring(i,i+2)))
+                    count++;
+        }
+        return count;
+    }
+
+    //Find number of occurrences of a given String in a List
+    public int numberOfOccurrence(ArrayList<String> list,String word){
+        int count =0;
+        for(String i :list){
+            if(i.equalsIgnoreCase(word)){
+                count++;
+            }
+        }
+        return count;
+
     }
 
 

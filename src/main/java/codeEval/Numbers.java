@@ -1043,8 +1043,39 @@ public class Numbers {
     // If either of you is very stylish, 8 or more, then the result is 2 (yes).
     // With the exception that if either of you has style of 2 or less, then the result is 0 (no). Otherwise the result is 1 (maybe).
     public int dateFashion(int you, int date){
+            if(you >=8 || date >=8)
+                return 2;
+            else if (you<=2 || date<=2)
+                return 0;
+            else
+                return 1;
+    }
+
+    //We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23.
+    // We are in trouble if the parrot is talking and the hour is before 7 or after 20.
+    // Return true if we are in trouble. parrotTrouble(true, 6)--> true , parrotTrouble(true, 7) --> false.
+    public boolean parrotTrouble(boolean talking, int hour) {
+        if(talking == true && (hour<7 || hour>20))
+            return true;
+        else return false;
 
     }
+
+    //Pass two matrices as parameter.Find the difference of the matrices.
+    // Criteria: Number of rows and columns of two matrices should be Equal.
+    public int[][] subtractMatrices(int[][] a,int[][] b){
+        int[][] res = new int[a.length][a[0].length];
+        for(int i =0;i<a.length;i++)
+        {
+            for(int j =0;j<a[0].length;j++)
+            {
+                res[i][j] = a[i][j]-b[i][j];
+            }
+        }
+        return res;
+    }
+
+
 
 }
 
