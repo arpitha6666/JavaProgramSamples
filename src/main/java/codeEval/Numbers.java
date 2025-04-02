@@ -1,10 +1,7 @@
 package codeEval;
 //
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Numbers {
     //Pass two ints as parameter and return the sum of numbers.
@@ -706,8 +703,8 @@ public class Numbers {
     //We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array, at least one of the pair is that value.
     // Return true if the given value is everywhere in the array.
     public boolean isEverywhere(int[] num, int val) {
-        for(int i=0;i<num.length-1;i++){
-            if(!(num[i] == val && num[i+i]==val))
+        for (int i = 0; i < num.length - 1; i++) {
+            if (!(num[i] == val && num[i + i] == val))
                 return false;
         }
         return true;
@@ -716,10 +713,10 @@ public class Numbers {
 
     //For each multiple of 10 in the given array, change all the values following it to be that multiple of 10,
     // until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
-    public int[] tenRun(int[] num){
-        for(int i =0;i<num.length-1;i++){
-            if(num[i]%10==0 && num[i+1]%10!=0){
-                num[i+1]=num[i];
+    public int[] tenRun(int[] num) {
+        for (int i = 0; i < num.length - 1; i++) {
+            if (num[i] % 10 == 0 && num[i + 1] % 10 != 0) {
+                num[i + 1] = num[i];
             }
         }
         return num;
@@ -732,19 +729,19 @@ public class Numbers {
         int[] a1 = new int[len];
         int[] a2 = new int[len];
 
-        a1 = Arrays.copyOfRange(nums,0,len);
-        a2 = Arrays.copyOfRange(nums,nums.length-len,nums.length);
+        a1 = Arrays.copyOfRange(nums, 0, len);
+        a2 = Arrays.copyOfRange(nums, nums.length - len, nums.length);
 
-        if(Arrays.equals(a1,a2))
+        if (Arrays.equals(a1, a2))
             return true;
         else
             return false;
     }
 
     //Given an array of ints, return true if every 2 that appears in the array is next to another 2.
-    public boolean every2(int[] a){
-        for(int i=0;i<a.length-1;i++){
-            if(a[i]==2 && a[i+1]==2)
+    public boolean every2(int[] a) {
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] == 2 && a[i + 1] == 2)
                 return true;
         }
         return false;
@@ -754,37 +751,236 @@ public class Numbers {
     // The given n may be 0, in which case just return a length 0 array.
     // You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case,
     // so it just works. The syntax to make a new int array is: new int[desired_length]
-    public int[] fizzArray(int n){
+    public int[] fizzArray(int n) {
 
-           int[] arr = new int[n];
-           for(int i =0;i<n;i++){
-               arr[i]=i;
-           }
-           return arr;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = i;
+        }
+        return arr;
     }
 
     //Given an int array, return a new array with double the length where its last element is the same as the original array,
     // and all the other elements are 0. The original array will be length 1 or more.
     // Note: by default, a new int array contains all 0's.
     public int[] makeLast(int[] num) {
-        int[] newArr = new int[num.length*2];
-        newArr[newArr.length-1]=num[num.length-1];
+        int[] newArr = new int[num.length * 2];
+        newArr[newArr.length - 1] = num[num.length - 1];
         return newArr;
     }
 
     //Given arrays nums1 and nums2 of the same length, for every element in nums1,
     // consider the corresponding element in nums2 (at the same index).
     // Return the count of the number of times that the two elements differ by 2 or less, but are not equal.
-    public int matchUp(int[] num1, int[] num2){
-        int count=0;
-        for(int i =0;i<num1.length;i++){
-            if(num1[i]!=num2[i] && (Math.abs(num1[i]-num2[i]))<=2)
+    public int matchUp(int[] num1, int[] num2) {
+        int count = 0;
+        for (int i = 0; i < num1.length; i++) {
+            if (num1[i] != num2[i] && (Math.abs(num1[i] - num2[i])) <= 2)
                 count++;
         }
         return count;
     }
 
-    //
+    //Return a version of the given array where all the 10's have been removed.
+    // The remaining elements should shift left towards the start of the array as needed,
+    // and the empty spaces a the end of the array should be 0.
+    // So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+    public int[] withoutTen(int[] num) {
+        int[] newArr = new int[num.length];
+        int k = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] != 10) {
+                newArr[k] = num[i];
+                k++;
+            }
+        }
+        return newArr;
+    }
+
+    //Given an array of ints, return true if the array contains two 7's next to each other,
+    // or there are two 7's separated by one element, such as with {7, 1, 7}.
+    public boolean has77(int[] num) {
+        for (int i = 0; i < num.length - 2; i++) {
+            if ((num[i] == 7 && num[i + 1] == 7) || (num[i] == 7 && num[i + 2] == 7))
+                return true;
+        }
+        return false;
+    }
+
+
+    //You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2.
+    // If they are all the value 2, the result is 10.
+    // Otherwise if they are all the same, the result is 5.
+    // Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.
+    public int redTicket(int a, int b, int c) {
+        if (a == 2 && b == 2 && c == 2)
+            return 10;
+        else if (a == b && b == c && c == a)
+            return 5;
+        else if (a != b && b != c && c != a)
+            return 1;
+        else
+            return 0;
+    }
+
+    //We are having a party with amounts of tea and candy.
+    // Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great.
+    // A party is good (1) if both tea and candy are at least 5.
+    // However, if either tea or candy is at least double the amount of the other one,the party is great (2).
+    // However, in all cases, if either tea or candy is less than 5, the party is always bad (0).
+    public int teaParty(int tea, int candy) {
+        if (tea >= 5 && candy >= 5 && (tea >= candy * 2 || candy == tea * 2))
+            return 2;
+        else if (tea >= 5 && candy >= 5)
+            return 1;
+        else
+            return 0;
+    }
+
+    //When squirrels get together for a party, they like to have cigars.
+    // A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
+    // Unless it is the weekend, in which case there is no upper bound on the number of cigars.
+    // Return true if the party with the given values is successful, or false otherwise.
+    public boolean cigarParty(int cigars, boolean isWeekend) {
+        if (cigars >= 40 && cigars <= 60 && isWeekend == false)
+            return true;
+        else if (isWeekend == true && cigars >= 40)
+            return true;
+        else
+            return false;
+    }
+
+    //Given two ints, each in the range 10..99, return true if there is a digit that appears in both numbers,
+    // such as the 2 in 12 and 23. (Note: division, e.g. n/10, gives the left digit while the % "mod" n%10 gives the right digit.)
+    public boolean shareDigit(int a, int b) {
+        if ((a % 10 == b / 10) || (a / 10 == b % 10))
+            return true;
+        else
+            return false;
+
+    }
+
+    //Given three ints, a b c, one of them is small, one is medium and one is large.
+    // Return true if the three values are evenly spaced, so the difference between small and medium is the same as
+    // the difference between medium and large.
+    public boolean evenlySpaced(int a, int b, int c) {
+        if ((Math.abs(a - b) == Math.abs(b - c)) && (Math.abs(a - b) == Math.abs(a - c)))
+            return true;
+        else
+            return false;
+    }
+
+    //The "key" array is an array containing the correct answers to an exam, like {"a", "a", "b", "b"}.
+    // the "answers" array contains a student's answers, with "?" representing a question left blank.
+    // The two arrays are not empty and are the same length. Return the score for this array of answers,
+    // giving +4 for each correct answer, -1 for each incorrect answer, and +0 for each blank answer.
+    public int scoreUp(String[] key, String[] answers) {
+        int score = 0;
+        for (int i = 0; i < key.length; i++) {
+            if (key[i].equals(answers[i]))
+                score += 4;
+            else if (key[i].equals("?"))
+                score += 0;
+            else
+                score += -1;
+        }
+        return score;
+    }
+
+    //Start with 2 int arrays, a and b, each length 2.
+    // Consider the sum of the values in each array.
+    // Return the array which has the largest sum. In event of a tie, return a
+    public int[] biggerTwo(int[] a, int[] b) {
+        int sumA = 0;
+        int sumB = 0;
+        sumA = sumA + a[0] + a[1];
+        sumB = sumB + b[0] + b[1];
+        if (sumB > sumA)
+            return b;
+        else
+            return a;
+    }
+
+    //Pass an array of strings as parameter. Remove duplicates from it and return an array containing only unique strings.
+    public String[] removeDuplicates(String[] str) {
+        Set<String> withoutDuplicate = new HashSet<>();
+        for (String i : str)
+            withoutDuplicate.add(i);
+        String[] result = new String[withoutDuplicate.size()];
+        return withoutDuplicate.toArray(result);
+    }
+
+    //Add two integers without using + operator.
+    public int add(int a, int b) {
+        while (b != 0) {
+            int carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+        }
+        return a;
+    }
+
+    //Multiply two integers using bitwise operators.
+    public int multiplyWithoutStarOperator(int x, int y) {
+        int res = 0;
+        while (y != 0) {
+            if ((y & 01) != 0) {
+                res = res + x;
+            }
+            x = x << 1;
+            y = y >> 1;
+        }
+        return res;
+    }
+
+    //Divide two positive integers without using / or % operator.
+    public int divide(int x, int y) {
+        int res = 0;
+        while ((x - y) >= 0) {
+            res++;
+            x = x - y;
+        }
+        return res;
+    }
+
+    //Multiply two integers without using * operator.
+    public int multiplyWithoutStarOperator2(int x, int y) {
+        int res = 0;
+        while (y != 0) {
+            if ((y & 01) != 0) {
+                res += x;
+            }
+            x = x << 1;
+            y = y >> 1;
+        }
+        return res;
+    }
+
+    //Check the given matrix is a Square Matrix. Explanation: A square matrix is an (n x n) matrix,
+    // that is, a matrix with the same number of rows as columns.
+    public boolean findSquareMatrixOrNot(int[][] a){
+        int rows=a.length;
+        int cols =a[0].length;
+        if (rows==cols)
+            return true;
+        else return false;
+    }
+
+    //Pass a Matrix as parameter and check whether the matrix is a UnitMatrix.
+    // Exp:A matrix in which all the elements are '1's called a Unit Matrix.
+    public boolean isUnitmatrix(int[][] a){
+        boolean ret = true;
+        for(int i=0;i<a.length;i++){
+            for(int j =0;j<a[0].length;j++){
+                if(a[i][j] != 1) {
+                    ret = false;
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+
 }
 
 

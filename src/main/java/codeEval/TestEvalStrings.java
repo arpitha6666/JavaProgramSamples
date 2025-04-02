@@ -1,5 +1,7 @@
 package codeEval;
 
+import java.util.ArrayList;
+
 public class TestEvalStrings {
     public static void main(String[] args) {
         EvalStrings obj= new EvalStrings();
@@ -160,7 +162,15 @@ public class TestEvalStrings {
                 "However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string."+
                 obj.minCat("Hello", "hi"));
 
+        System.out.println("55-Given a non-empty string like \"Code\" return a string like 'CCoCodCode' - "+obj.generateCode("Code")+ " "+ obj.generateCode("Arpitha"));
+        System.out.println("56 - Given a string, return a string where for every char in the original, there are two chars - "+obj.doubleChar("Code"));
+        System.out.println("57 - Look for patterns like 'zip' and 'zap' in the string -- length-3, starting with 'z' and ending with 'p'.\n" +
+                "Return a string where for all such words, the middle letter is gone, so 'zipXzap' yields 'zpXzp' - "+obj.zipZap("zipXzap"));
 
+        ArrayList<String> arr = new ArrayList<>();
+        arr.add("Ars");arr.add("fgd");arr.add("df");arr.add("dsf");arr.add("try");arr.add("Ars");
+        System.out.println("58 - removeRecurringStrings - "+obj.removeRecurringStrings(arr));
+        System.out.println("59-ComboString - "+ obj.comboString("ars","arsgt"));
 
     }
 }

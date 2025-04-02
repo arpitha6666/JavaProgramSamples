@@ -2,10 +2,7 @@ package codeEval;
 
 import com.sun.corba.se.impl.orb.ParserTable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class EvalStrings {
     //Given two strings, append them together (known as "concatenation") and return the result.
@@ -532,80 +529,124 @@ public class EvalStrings {
 
     }
 
-    //Return a version of the given array where all the 10's have been removed.
-    // The remaining elements should shift left towards the start of the array as needed,
-    // and the empty spaces a the end of the array should be 0.
-    // So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
-    public int[] withoutTen(int[] num) {
-        int[] newArr = new int[num.length];
-        int k = 0;
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] != 10) {
-                newArr[k] = num[i];
-                k++;
-            }
+    //Return the number of times that the string "code" appears anywhere in the given string,
+    // except we'll accept any letter for the 'd', so "cope" and "cooe" count.
+    public int codeAppear(String str){
+        int count = 0;
+        if(str.contains("code") || str.contains("cope") || str.contains("cooe"))
+            count++;
+        return count;
+    }
+
+    //Given a non-empty string like "Code" return a string like "CCoCodCode".
+    public String generateCode(String str){
+        String sb = "";
+        for(int i=0;i<=str.length();i++){
+            sb = sb+str.substring(0,i); //c
         }
-        return newArr;
+        return sb;
     }
 
-    //Given an array of ints, return true if the array contains two 7's next to each other,
-    // or there are two 7's separated by one element, such as with {7, 1, 7}.
-    public boolean has77(int[] num) {
-        for (int i = 0; i < num.length - 2; i++) {
-            if ((num[i] == 7 && num[i + 1] == 7) || (num[i] == 7 && num[i + 2] == 7))
-                return true;
+    //Given a string, return a string where for every char in the original, there are two chars.
+    public String doubleChar(String str) {
+        StringBuilder sb = new StringBuilder();
+        char[]c = str.toCharArray();
+        for(int i=0;i<str.length();i++){
+            sb.append(c[i]).append(c[i]);
         }
-        return false;
+        return sb.toString();
     }
 
+    //Look for patterns like "zip" and "zap" in the string -- length-3, starting with 'z' and ending with 'p'.
+    // Return a string where for all such words, the middle letter is gone, so "zipXzap" yields "zpXzp".
+    public String zipZap(String str) {
+        String res = "";
+        for(int i =0;i<str.length();i++) {
+            res = res+str.charAt(i);
+            if(str.charAt(i) == 'z' && str.charAt(i+2) == 'p')
+                i++;
+        }
+        return res;
+    }
 
-    //You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2.
-    // If they are all the value 2, the result is 10.
-    // Otherwise if they are all the same, the result is 5.
-    // Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.
-    public int redTicket(int a, int b, int c) {
-        if (a == 2 && b == 2 && c == 2)
-            return 10;
-        else if (a == b && b == c && c == a)
-            return 5;
-        else if (a != b && b != c && c != a)
-            return 1;
+    //Given a string, return a version without the first 2 chars.
+    // Except keep the first char if it is 'a' and keep the second char if it is 'b'. The string may be any length.
+    public String deFront(String str){
+        if(str.charAt(0)=='a'  && str.charAt(1)=='b')
+            return str;
+        else if(str.charAt(0) == 'a')
+            return str.charAt(0)+str.substring(2);
+        else if (str.charAt(1) == 'b')
+            return str.substring(1);
         else
-            return 0;
+            return str.substring(2);
     }
 
-    //We are having a party with amounts of tea and candy.
-    // Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great.
-    // A party is good (1) if both tea and candy are at least 5.
-    // However, if either tea or candy is at least double the amount of the other one,the party is great (2).
-    // However, in all cases, if either tea or candy is less than 5, the party is always bad (0).
-    public int teaParty(int tea, int candy) {
-        if (tea >= 5 && candy >= 5 && (tea >= candy * 2 || candy == tea * 2))
-            return 2;
-        else if (tea >= 5 && candy >= 5)
-            return 1;
-        else
-            return 0;
-    }
 
-    //When squirrels get together for a party, they like to have cigars.
-    // A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
-    // Unless it is the weekend, in which case there is no upper bound on the number of cigars.
-    // Return true if the party with the given values is successful, or false otherwise.
-    public boolean cigarParty(int cigars, boolean isWeekend){
-        if(cigars>=40 && cigars<=60 && isWeekend == false)
+    //Return true if the given string begins with "mix", except the 'm' can be anything, so "pix", "9ix" .. all count.
+    public boolean mixStart(String str) {
+        if(str.startsWith("mix"))
             return true;
-        else if(isWeekend == true && cigars>=40)
+        else if(str.substring(1).equals("ix"))
             return true;
         else
             return false;
     }
 
-    //Given two ints, each in the range 10..99, return true if there is a digit that appears in both numbers,
-    // such as the 2 in 12 and 23. (Note: division, e.g. n/10, gives the left digit while the % "mod" n%10 gives the right digit.)
-    public boolean shareDigit(int a, int b){
-
+    //A list of strings is given as input. Take n(String length) as int input.
+    // Remove all strings having (length > = n )from the list and return it.
+    public ArrayList<String> removeStringFromList(ArrayList<String> arr,int n){
+        ArrayList<String> result = new ArrayList<>();
+        for(String s : arr){
+            if(s.length()<n)
+                result.add(s);
+        }
+        return result;
     }
+
+    //Remove all recurring(repeating) Strings from a given List
+    public ArrayList<String> removeRecurringStrings(ArrayList<String> al) {
+        Set<String> withoutReccur = new HashSet<>();
+        for(String i : al)
+            withoutReccur.add(i);
+        ArrayList<String> result = new ArrayList<>(withoutReccur);
+        return result;
+    }
+
+    //Sort the list containing Strings in ascending order(natural ordering)
+    // Note:Spaces sort before digits and characters,and that digits sort before characters
+    // and upper case characters sort before lowercase characters.
+    public ArrayList<String> listSort(ArrayList<String> al){
+        Collections.sort(al);
+        return al;
+    }
+
+    //Given a string, return a version where all the "x" have been removed.
+    // Except an "x" at the very start or end should not be removed.
+    public String stringX(String str) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(str.charAt(0));
+        for(int i =1;i<str.length()-1;i++) {
+            if (!(str.charAt(i)=='x'))
+                sb.append(str.charAt(i));
+        }
+        sb.append(str.charAt(str.length()-1));
+        return sb.toString();
+    }
+
+    //Given 2 strings, a and b, return a string of the form short+long+short,
+    // with the shorter string on the outside and the longer string on the inside.
+    // The strings will not be the same length, and >=1
+    public String comboString(String a, String b) {
+
+        if(a.length() <b.length()){
+            return a+b+a;
+        }
+        else
+            return b+a+b;
+    }
+
+
 }
 
 
