@@ -981,6 +981,71 @@ public class Numbers {
         return ret;
     }
 
+    //Pass two matrices as parameter.Find the sum of the matrices.
+    // Criteria: Number of rows and columns of two matrices should be Equal.
+    public int[][] addMatrices(int[][] a,int[][] b){
+        int[][]sum = new int[a.length][a[0].length];
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a[0].length;i++){
+                sum[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        return sum;
+    }
+
+    //We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+    // Given 2 int values, return true if one or the other is teen, but not both.
+    public boolean loneTeen(int a, int b) {
+        if(a>=13 && a<=19 || b>=13 && b<=19)
+            return true;
+        else
+            return false;
+    }
+
+    //Find Transpose of a Matrix.
+    // Def: The transpose of one matrix is obtained by using rows from the first matrix as columns in the second matrix.
+    public int[][] transposeMatrix(int[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int[][] transpose = new int[row][col];
+        for(int i =0;i<col;i++){
+            for(int j=0;j<row;j++){
+                transpose[j][i] =matrix[i][j];
+            }
+        }
+        return transpose;
+    }
+
+    //Find whether the given matrix is Symmetric matrix.
+    // Explanation:If the transpose of a matrix is equal to itself, that matrix is said to be Symmetric.
+    public boolean findSymmetry(int[][] arr){
+        int[][] transpose = new int[arr.length][arr[0].length];
+        for(int i =0;i<arr.length;i++)
+        {
+            for(int j =0;j<arr[0].length;j++)
+            {
+                transpose[j][i] = arr[i][j];
+            }
+        }
+
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(transpose[j][i] != arr[i][j])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    //You and your date are trying to get a table at a restaurant.
+    // The parameter "you" is the stylishness of your clothes, in the range 0..10, and "date" is the stylishness of your date's clothes.
+    // The result getting the table is encoded as an int value with 0=no, 1=maybe, 2=yes.
+    // If either of you is very stylish, 8 or more, then the result is 2 (yes).
+    // With the exception that if either of you has style of 2 or less, then the result is 0 (no). Otherwise the result is 1 (maybe).
+    public int dateFashion(int you, int date){
+
+    }
+
 }
 
 

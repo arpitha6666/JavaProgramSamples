@@ -170,7 +170,7 @@ public class TestEvalStrings {
         ArrayList<String> arr = new ArrayList<>();
         arr.add("Ars");arr.add("fgd");arr.add("df");arr.add("dsf");arr.add("try");arr.add("Ars");
         System.out.println("58 - removeRecurringStrings - "+obj.removeRecurringStrings(arr));
-        System.out.println("59-ComboString - "+ obj.comboString("ars","arsgt"));
+        System.out.println("59- ComboString - "+ obj.comboString("ars","arsgt"));
 
     }
 }
