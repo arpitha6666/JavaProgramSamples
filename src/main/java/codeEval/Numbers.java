@@ -1075,6 +1075,14 @@ public class Numbers {
         return res;
     }
 
+    //recurrsive sum
+    public long recurrsive_sum(int num){
+        if(num>0){
+            return num+recurrsive_sum(num-1);
+        }else return 0;
+    }
+
+
 
 
 }

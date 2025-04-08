@@ -198,8 +198,11 @@ public class TestClassNumber {
         System.out.println("55- For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, \n" +
                 "until encountering another multiple of 10 - ");
         int[] out12 = n.tenRun(new int[] {2, 10, 3, 4, 20, 5});
-        for(int i : out12)
-            System.out.print(i+ " ") ;
+        for(int i : out12) {
+            System.out.println(i + " ");
+        }
+
+        System.out.println("Recurssive sum "+ n.recurrsive_sum(10));
 
     }
 }

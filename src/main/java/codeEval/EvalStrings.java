@@ -692,6 +692,13 @@ public class EvalStrings {
 
     }
 
+    //recursive reverse string
+    public  String recursive_reverse(String str){
+        if(str==null || str.length()<=1)
+            return str;
+        else
+            return reverseString(str.substring(1))+str.charAt(0);
+    }
 
 }
 
