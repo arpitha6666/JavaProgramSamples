@@ -1082,6 +1082,46 @@ public class Numbers {
         }else return 0;
     }
 
+    //Find the second largest
+    public int findSecondLargest(int[] arr){
+        int largest = -1;
+        int secondLargest = -1;
+        for (int a : arr) {
+            if (a > largest) {
+                largest = a;
+            }
+        }
+        for(int a : arr){
+            if(a>secondLargest && a!=largest)
+                secondLargest=a;
+        }
+        return secondLargest;
+    }
+
+    //find the suplicates in array
+    public List<Integer> findDuplicates(int[] arr){
+        Set<Integer> remove = new HashSet<>();
+        List<Integer> duplicates = new ArrayList<>();
+        for(int a : arr){
+            if(!remove.add(a)){
+                duplicates.add(a);
+            }
+        }
+        return duplicates;
+    }
+
+    //Find the missing number in the sequence
+    public int missingNumber(int[] arr, int n){
+
+        int expectedSum = n*(n+1)/2;
+        int actualSum=0;
+        for(int a :arr){
+            actualSum+=a;
+        }
+        int missingNum = expectedSum-actualSum;
+        return missingNum;
+    }
+
 
 
 

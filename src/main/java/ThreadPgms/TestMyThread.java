@@ -8,5 +8,12 @@ public class TestMyThread{
         MyThreadRunnable tr = new MyThreadRunnable();
         Thread t2 = new Thread(tr);
         t2.start();
+
+//        for(int i =0;i<100;i++){
+//            System.out.println("BINGO");
+//        }
+//        for(int i =0;i<100;i++){
+//            System.out.println("BONGO");
+//        }
    }
 }

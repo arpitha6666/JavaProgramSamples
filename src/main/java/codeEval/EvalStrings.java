@@ -700,6 +700,32 @@ public class EvalStrings {
             return reverseString(str.substring(1))+str.charAt(0);
     }
 
+    //check if the strings are anagrams
+    public boolean areAnagrams(String str1, String str2){
+        //replace the spaces and convert all literals to lower case
+        str1 = str1.replaceAll("\\s","").toLowerCase();
+        str2 = str2.replaceAll("\\s","").toLowerCase();
+
+        //check if the lengths of the strings are same
+        if(str1.length()!=str2.length())
+            return false;
+
+        char[] c1 = str1.toCharArray();
+        char[] c2 = str2.toCharArray();
+        //sort the char arrays
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+
+        // return true if they are
+        boolean flag = Arrays.equals(c1,c2)? true: false;
+        return flag;
+    }
+
+    //find the first non-repeated character in the String
+//    public String firstNonRepeatedCharInString(){
+//
+//    }
 }
 
 

@@ -204,5 +204,10 @@ public class TestClassNumber {
 
         System.out.println("Recurssive sum "+ n.recurrsive_sum(10));
 
+        System.out.println("Second Largest - "+n.findSecondLargest(new int[]{10,12,4,50,7,89}));
+
+        System.out.println("Find duplicates in the array "+ n.findDuplicates(new int[]{10,12,4,50,12, 5 ,7,10,89}));
+        System.out.println("Find the missing number in the array  "+ n.missingNumber(new int[]{1,2,4,6,3,7,8},8));
+
     }
 }
